@@ -1,0 +1,12 @@
+{
+  "version": "0.1.0",
+  "last_updated": "2026-05-04",
+  "records": 33,
+  "rubros": 9,
+  "paises": 5,
+  "sources": [
+    {"name": "Sysarmy / OpenQube", "url": "https://sueldos.openqube.io/", "license": "CC BY-SA 4.0"},
+    {"name": "Comunidad (formulario anónimo)", "license": "CC0"}
+  ],
+  "note": "Datos de bootstrap basados en agregados públicos (Sysarmy 2024 H2). Cron diario actualiza con reportes nuevos."
+}
