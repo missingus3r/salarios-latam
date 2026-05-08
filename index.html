@@ -97,57 +97,57 @@
   #tab-fortunas * {box-sizing:border-box;}
   #tab-fortunas .wrap {max-width:1100px;margin:0 auto;padding:1.5rem 1rem 3rem;}
   /* Hero ahora vive como <header> Tailwind (alineado con Salarios), no usa estos selectores legacy */
-  #tab-fortunas .metrics {display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-bottom:18px;}
+  #tab-fortunas .metrics {display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px;}
   @media(min-width:900px) {#tab-fortunas .metrics{grid-template-columns:repeat(4,1fr);}}
   @media(min-width:1100px) {#tab-fortunas .metrics{grid-template-columns:repeat(8,1fr);}}
-  #tab-fortunas .mc {background:var(--bg2);border:1px solid var(--brd2);border-radius:var(--r);padding:10px 12px;transition:border-color 0.3s,box-shadow 0.3s;}
+  #tab-fortunas .mc {background:var(--bg2);border:1px solid var(--brd2);border-radius:var(--r);padding:14px 16px;transition:border-color 0.3s,box-shadow 0.3s;}
   #tab-fortunas .mc:hover {border-color:var(--brd);box-shadow:var(--glow);}
-  #tab-fortunas .mc .lb {font-size:10px;color:var(--tx2);text-transform:uppercase;letter-spacing:0.5px;}
-  #tab-fortunas .mc .vl {font-size:17px;font-weight:600;color:var(--tx0);margin:2px 0;line-height:1.2;}
-  #tab-fortunas .mc .sub {font-size:10px;color:var(--tx2);}
-  #tab-fortunas .section {background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);padding:16px;margin-bottom:12px;transition:border-color 0.3s;}
+  #tab-fortunas .mc .lb {font-size:12px;color:var(--tx2);text-transform:uppercase;letter-spacing:0.5px;}
+  #tab-fortunas .mc .vl {font-size:24px;font-weight:700;color:var(--tx0);margin:4px 0;line-height:1.2;}
+  #tab-fortunas .mc .sub {font-size:12px;color:var(--tx2);}
+  #tab-fortunas .section {background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);padding:24px;margin-bottom:20px;transition:border-color 0.3s;}
   #tab-fortunas .section:hover {border-color:var(--brd);}
-  #tab-fortunas .section h2 {font-size:13px;font-weight:500;color:var(--acc2);margin-bottom:10px;display:flex;align-items:center;gap:6px;text-transform:none;letter-spacing:normal;}
-  #tab-fortunas .section h2::before {content:'';width:3px;height:14px;background:var(--acc);border-radius:2px;}
-  #tab-fortunas table {width:100%;border-collapse:collapse;font-size:11.5px;}
-  #tab-fortunas th {text-align:left;padding:6px;color:var(--tx2);font-weight:400;font-size:10px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid var(--brd2);background:transparent;}
-  #tab-fortunas td {padding:5px 6px;border-bottom:1px solid rgba(255,255,255,0.03);}
+  #tab-fortunas .section h2 {font-size:24px;font-weight:700;color:var(--tx0);margin-bottom:16px;display:flex;align-items:center;gap:10px;text-transform:none;letter-spacing:-0.01em;}
+  #tab-fortunas .section h2::before {content:'';width:4px;height:22px;background:var(--acc);border-radius:2px;}
+  #tab-fortunas table {width:100%;border-collapse:collapse;font-size:14px;}
+  #tab-fortunas th {text-align:left;padding:12px 8px;color:var(--tx2);font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid var(--brd2);background:transparent;}
+  #tab-fortunas td {padding:10px 8px;border-bottom:1px solid rgba(255,255,255,0.03);}
   #tab-fortunas tr:hover td {background:rgba(139,92,246,0.03);}
   #tab-fortunas .bar-wrap {flex:1;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
   #tab-fortunas .bar-fill {height:100%;border-radius:2px;background:linear-gradient(90deg,var(--acc3),var(--acc));}
-  #tab-fortunas .controls {display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px;}
-  #tab-fortunas select {font-size:12px;padding:5px 10px;background:var(--bg2);color:var(--tx0);border:1px solid var(--brd2);border-radius:6px;outline:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s;}
+  #tab-fortunas .controls {display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px;}
+  #tab-fortunas select {font-size:14px;padding:8px 14px;background:var(--bg2);color:var(--tx0);border:1px solid var(--brd2);border-radius:8px;outline:none;cursor:pointer;font-family:inherit;transition:border-color 0.2s;}
   #tab-fortunas select:hover, #tab-fortunas select:focus {border-color:var(--acc);}
-  #tab-fortunas label {font-size:11px;color:var(--tx2);display:flex;align-items:center;gap:4px;cursor:pointer;}
-  #tab-fortunas input[type=checkbox] {accent-color:var(--acc);width:13px;height:13px;}
-  #tab-fortunas .legend {display:flex;flex-wrap:wrap;gap:4px 12px;font-size:10.5px;color:var(--tx1);max-height:140px;overflow-y:auto;margin-bottom:8px;padding:8px 10px;background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);scrollbar-width:thin;scrollbar-color:var(--bg3) transparent;}
+  #tab-fortunas label {font-size:13px;color:var(--tx2);display:flex;align-items:center;gap:6px;cursor:pointer;}
+  #tab-fortunas input[type=checkbox] {accent-color:var(--acc);width:15px;height:15px;}
+  #tab-fortunas .legend {display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--tx1);max-height:180px;overflow-y:auto;margin-bottom:12px;padding:12px 14px;background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);scrollbar-width:thin;scrollbar-color:var(--bg3) transparent;}
   #tab-fortunas .legend span {cursor:pointer;transition:opacity 0.2s,color 0.2s;}
   #tab-fortunas .legend span:hover {opacity:0.75;color:var(--acc2);}
   #tab-fortunas .chart-wrap {position:relative;width:100%;height:680px;background:linear-gradient(180deg,var(--bg2) 0%,#14151d 100%);border:1px solid var(--brd);border-radius:var(--r);padding:14px 10px 10px 10px;margin-bottom:6px;box-shadow:inset 0 0 60px rgba(139,92,246,0.04),0 4px 30px rgba(0,0,0,0.3);}
   @media(max-width:700px) {#tab-fortunas .chart-wrap{height:520px;}}
-  #tab-fortunas .chart-hint {font-size:10px;color:var(--tx3);font-family:'DM Mono',monospace;text-align:center;margin-bottom:10px;letter-spacing:0.3px;}
-  #tab-fortunas .perspective {font-size:11.5px;color:var(--tx2);line-height:1.8;}
-  #tab-fortunas .perspective strong {color:var(--tx0);font-weight:500;}
-  #tab-fortunas .persp-row {display:flex;align-items:center;gap:6px;margin-bottom:2px;}
-  #tab-fortunas .persp-row .dot {width:6px;height:6px;border-radius:50%;flex-shrink:0;}
-  #tab-fortunas .footer {text-align:center;font-size:10.5px;color:var(--tx3);margin-top:16px;font-family:'DM Mono',monospace;line-height:1.6;}
+  #tab-fortunas .chart-hint {font-size:12px;color:var(--tx3);font-family:ui-monospace,monospace;text-align:center;margin-bottom:14px;letter-spacing:0.3px;}
+  #tab-fortunas .perspective {font-size:14px;color:var(--tx1);line-height:1.8;}
+  #tab-fortunas .perspective strong {color:var(--tx0);font-weight:600;}
+  #tab-fortunas .persp-row {display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+  #tab-fortunas .persp-row .dot {width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  #tab-fortunas .footer {text-align:center;font-size:13px;color:var(--tx3);margin-top:24px;font-family:ui-monospace,monospace;line-height:1.6;}
   #tab-fortunas .grid2 {display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   @media(max-width:600px) {#tab-fortunas .grid2{grid-template-columns:1fr;}}
-  #tab-fortunas .rec-card {background:var(--bg2);border:1px solid var(--brd2);border-radius:var(--r);padding:10px 12px;}
-  #tab-fortunas .rec-card .rec-label {font-size:10px;color:var(--tx2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;}
-  #tab-fortunas .rec-card .rec-name {font-size:15px;font-weight:500;}
-  #tab-fortunas .rec-card .rec-val {font-size:11px;margin-top:2px;}
-  #tab-fortunas .count-badge {font-size:10px;font-family:'DM Mono',monospace;color:var(--acc2);background:rgba(139,92,246,0.1);padding:2px 8px;border-radius:10px;margin-left:auto;}
-  #tab-fortunas .sources {margin-top:28px;padding:16px 18px;background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);}
-  #tab-fortunas .sources h3 {font-size:11px;font-weight:500;color:var(--acc2);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-  #tab-fortunas .sources h3::before {content:'';width:3px;height:12px;background:var(--acc);border-radius:2px;}
-  #tab-fortunas .sources ul {list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;padding:0;margin:0;}
+  #tab-fortunas .rec-card {background:var(--bg2);border:1px solid var(--brd2);border-radius:var(--r);padding:16px 18px;}
+  #tab-fortunas .rec-card .rec-label {font-size:12px;color:var(--tx2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+  #tab-fortunas .rec-card .rec-name {font-size:20px;font-weight:600;}
+  #tab-fortunas .rec-card .rec-val {font-size:14px;margin-top:4px;color:var(--tx1);}
+  #tab-fortunas .count-badge {font-size:12px;font-family:ui-monospace,monospace;color:var(--acc2);background:rgba(167,139,250,0.12);padding:4px 12px;border-radius:14px;margin-left:auto;}
+  #tab-fortunas .sources {margin-top:32px;padding:24px;background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);}
+  #tab-fortunas .sources h3 {font-size:18px;font-weight:600;color:var(--tx0);text-transform:none;letter-spacing:-0.01em;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+  #tab-fortunas .sources h3::before {content:'';width:4px;height:18px;background:var(--acc);border-radius:2px;}
+  #tab-fortunas .sources ul {list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;padding:0;margin:0;}
   @media(max-width:700px) {#tab-fortunas .sources ul{grid-template-columns:1fr;}}
-  #tab-fortunas .sources li {font-size:10.5px;color:var(--tx2);line-height:1.6;padding-left:10px;position:relative;}
+  #tab-fortunas .sources li {font-size:13px;color:var(--tx1);line-height:1.7;padding-left:14px;position:relative;}
   #tab-fortunas .sources li::before {content:'›';position:absolute;left:0;color:var(--acc3);}
-  #tab-fortunas .sources a {color:var(--tx1);text-decoration:none;border-bottom:1px dotted var(--tx3);transition:color 0.2s,border-color 0.2s;}
+  #tab-fortunas .sources a {color:var(--tx0);text-decoration:none;border-bottom:1px dotted var(--tx3);transition:color 0.2s,border-color 0.2s;}
   #tab-fortunas .sources a:hover {color:var(--acc2);border-bottom-color:var(--acc);}
-  #tab-fortunas .sources .note {font-size:10px;color:var(--tx3);margin-top:10px;padding-top:10px;border-top:1px solid var(--brd2);font-family:'DM Mono',monospace;}
+  #tab-fortunas .sources .note {font-size:12px;color:var(--tx3);margin-top:14px;padding-top:14px;border-top:1px solid var(--brd2);font-family:ui-monospace,monospace;}
 
   /* Modal opacity: solid backdrop, no transparency */
   #history-modal, #api-modal { background: rgba(11, 16, 32, 1) !important; backdrop-filter: none !important; }
