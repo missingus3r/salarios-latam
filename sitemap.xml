@@ -5,4 +5,19 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://missingus3r.github.io/salarios-latam/data/salaries.json</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://missingus3r.github.io/salarios-latam/data/history.json</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://missingus3r.github.io/salarios-latam/data/meta.json</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
