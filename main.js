@@ -6,6 +6,7 @@ let META = {};
 let HISTORY = null; // lazy
 let filters = { search: '', pais: '', rubro: '', seniority: '', modalidad: '' };
 let pagination = { page: 1, pageSize: 20 };
+let sortState = { key: null, dir: 'asc' };
 
 // ─── Bootstrap ─────────────────────────────────────────────────────────
 async function load() {
@@ -18,6 +19,7 @@ async function load() {
   renderStats();
   populateSelects();
   bindFilters();
+  bindSort();
   render();
   renderTopRubros();
   renderSources();
@@ -80,7 +82,7 @@ function bindFilters() {
 }
 
 function applyFilters(rows) {
-  return rows.filter(r => {
+  const filtered = rows.filter(r => {
     if (filters.pais && r.pais !== filters.pais) return false;
     if (filters.rubro && r.rubro !== filters.rubro) return false;
     if (filters.seniority && r.seniority !== filters.seniority) return false;
@@ -90,6 +92,47 @@ function applyFilters(rows) {
       if (!hay.includes(filters.search)) return false;
     }
     return true;
+  });
+  return applySort(filtered);
+}
+
+function applySort(rows) {
+  if (!sortState.key) return rows;
+  const k = sortState.key;
+  const dir = sortState.dir === 'asc' ? 1 : -1;
+  return [...rows].sort((a, b) => {
+    let av = a[k], bv = b[k];
+    // strings vs numbers
+    if (typeof av === 'string' || typeof bv === 'string') {
+      av = (av ?? '').toString().toLowerCase();
+      bv = (bv ?? '').toString().toLowerCase();
+      if (av < bv) return -1 * dir;
+      if (av > bv) return 1 * dir;
+      return 0;
+    }
+    av = av ?? -Infinity;
+    bv = bv ?? -Infinity;
+    return (av - bv) * dir;
+  });
+}
+
+function bindSort() {
+  document.querySelectorAll('th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const k = th.dataset.sort;
+      if (sortState.key === k) {
+        sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc';
+      } else {
+        sortState.key = k;
+        // numeric columns default desc, string columns default asc
+        sortState.dir = ['median_usd', 'p25_usd', 'p75_usd', 'n'].includes(k) ? 'desc' : 'asc';
+      }
+      // update visual indicators
+      document.querySelectorAll('th.sortable').forEach(t => t.classList.remove('sort-asc', 'sort-desc'));
+      th.classList.add(sortState.dir === 'asc' ? 'sort-asc' : 'sort-desc');
+      pagination.page = 1;
+      render();
+    });
   });
 }
 
@@ -139,7 +182,8 @@ function renderPagination(total) {
     pgEl = document.createElement('div');
     pgEl.id = 'results-pagination';
     pgEl.className = 'pagination';
-    const tableCard = document.querySelector('#explorar .card');
+    // append inside the table card (not the search/filters card)
+    const tableCard = document.getElementById('table-card');
     if (tableCard) tableCard.appendChild(pgEl);
   }
   if (total === 0) { pgEl.innerHTML = ''; return; }
