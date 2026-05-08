@@ -5,6 +5,7 @@ let DATA = [];
 let META = {};
 let HISTORY = null; // lazy
 let filters = { search: '', pais: '', rubro: '', seniority: '', modalidad: '' };
+let pagination = { page: 1, pageSize: 20 };
 
 // ─── Bootstrap ─────────────────────────────────────────────────────────
 async function load() {
@@ -63,15 +64,16 @@ function populateSelects() {
 }
 
 function bindFilters() {
-  document.getElementById('f-search').addEventListener('input', e => { filters.search = e.target.value.toLowerCase(); render(); });
-  document.getElementById('f-pais').addEventListener('change', e => { filters.pais = e.target.value; render(); });
-  document.getElementById('f-rubro').addEventListener('change', e => { filters.rubro = e.target.value; render(); });
-  document.getElementById('f-seniority').addEventListener('change', e => { filters.seniority = e.target.value; render(); });
+  document.getElementById('f-search').addEventListener('input', e => { filters.search = e.target.value.toLowerCase(); pagination.page = 1; render(); });
+  document.getElementById('f-pais').addEventListener('change', e => { filters.pais = e.target.value; pagination.page = 1; render(); });
+  document.getElementById('f-rubro').addEventListener('change', e => { filters.rubro = e.target.value; pagination.page = 1; render(); });
+  document.getElementById('f-seniority').addEventListener('change', e => { filters.seniority = e.target.value; pagination.page = 1; render(); });
   document.querySelectorAll('.modalidad-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       filters.modalidad = btn.dataset.modalidad;
       document.querySelectorAll('.modalidad-btn').forEach(b => b.classList.remove('bg-accent', 'text-slate-900'));
       btn.classList.add('bg-accent', 'text-slate-900');
+      pagination.page = 1;
       render();
     });
   });
@@ -99,11 +101,17 @@ function render() {
   if (rows.length === 0) {
     empty.classList.remove('hidden');
     document.getElementById('results-summary').textContent = '';
+    renderPagination(0);
     return;
   }
   empty.classList.add('hidden');
   document.getElementById('results-summary').textContent = `${rows.length} resultados — mediana global $${median(rows.map(r => r.median_usd)).toLocaleString('es-AR')} USD`;
-  rows.slice(0, 200).forEach(r => {
+  // pagination
+  const totalPages = Math.max(1, Math.ceil(rows.length / pagination.pageSize));
+  if (pagination.page > totalPages) pagination.page = totalPages;
+  const start = (pagination.page - 1) * pagination.pageSize;
+  const pageRows = rows.slice(start, start + pagination.pageSize);
+  pageRows.forEach(r => {
     const tr = document.createElement('tr');
     tr.className = 'row border-t border-white/5 cursor-pointer';
     tr.dataset.rol = r.rol;
@@ -122,6 +130,49 @@ function render() {
     tr.addEventListener('click', () => openHistoryModal(r));
     tbody.appendChild(tr);
   });
+  renderPagination(rows.length);
+}
+
+function renderPagination(total) {
+  let pgEl = document.getElementById('results-pagination');
+  if (!pgEl) {
+    pgEl = document.createElement('div');
+    pgEl.id = 'results-pagination';
+    pgEl.className = 'pagination';
+    const tableCard = document.querySelector('#explorar .card');
+    if (tableCard) tableCard.appendChild(pgEl);
+  }
+  if (total === 0) { pgEl.innerHTML = ''; return; }
+  const totalPages = Math.max(1, Math.ceil(total / pagination.pageSize));
+  const start = (pagination.page - 1) * pagination.pageSize + 1;
+  const end = Math.min(pagination.page * pagination.pageSize, total);
+  pgEl.innerHTML = `
+    <span class="pg-info">Mostrando ${start}-${end} de ${total}</span>
+    <div class="pg-controls">
+      <label class="pg-info">Por página
+        <select id="pg-size">
+          <option value="10" ${pagination.pageSize===10?'selected':''}>10</option>
+          <option value="20" ${pagination.pageSize===20?'selected':''}>20</option>
+          <option value="50" ${pagination.pageSize===50?'selected':''}>50</option>
+          <option value="100" ${pagination.pageSize===100?'selected':''}>100</option>
+          <option value="9999" ${pagination.pageSize===9999?'selected':''}>Todas</option>
+        </select>
+      </label>
+      <button id="pg-first" ${pagination.page<=1?'disabled':''}>«</button>
+      <button id="pg-prev" ${pagination.page<=1?'disabled':''}>‹</button>
+      <span class="pg-info">Página ${pagination.page} / ${totalPages}</span>
+      <button id="pg-next" ${pagination.page>=totalPages?'disabled':''}>›</button>
+      <button id="pg-last" ${pagination.page>=totalPages?'disabled':''}>»</button>
+    </div>`;
+  document.getElementById('pg-size').addEventListener('change', e => {
+    pagination.pageSize = +e.target.value;
+    pagination.page = 1;
+    render();
+  });
+  document.getElementById('pg-first').addEventListener('click', () => { pagination.page = 1; render(); });
+  document.getElementById('pg-prev').addEventListener('click', () => { if (pagination.page > 1) { pagination.page--; render(); } });
+  document.getElementById('pg-next').addEventListener('click', () => { if (pagination.page < totalPages) { pagination.page++; render(); } });
+  document.getElementById('pg-last').addEventListener('click', () => { pagination.page = totalPages; render(); });
 }
 
 // ─── History modal ────────────────────────────────────────────────────
@@ -239,9 +290,8 @@ function bindTabs() {
   function activate(name) {
     buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === name));
     Object.entries(panels).forEach(([k, p]) => p.classList.toggle('hidden', k !== name));
-    if (name === 'fortunas') {
-      const iframe = document.getElementById('fortunas-iframe');
-      if (iframe && !iframe.src && iframe.dataset.src) iframe.src = iframe.dataset.src;
+    if (name === 'fortunas' && typeof window.initFortunas === 'function') {
+      window.initFortunas();
     }
     if (location.hash !== '#' + name) history.replaceState(null, '', '#' + name);
   }

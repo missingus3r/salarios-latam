@@ -1,162 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fortunas de Latinoamérica · 1968–2026</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%238b5cf6'/><stop offset='1' stop-color='%2360a5fa'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='%230a0b0f'/><path d='M12 48 L12 16 M12 48 L52 48' stroke='%236b6e80' stroke-width='3' stroke-linecap='round' fill='none'/><path d='M14 42 L22 34 L30 38 L40 22 L50 14' stroke='url(%23g)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='50' cy='14' r='3.5' fill='%23a78bfa'/></svg>">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400&display=swap');
-:root{
-  --bg0:#0a0b0f;--bg1:#12131a;--bg2:#191b24;--bg3:#21232f;
-  --tx0:#e8e9ed;--tx1:#a3a6b4;--tx2:#6b6e80;--tx3:#44475a;
-  --acc:#8b5cf6;--acc2:#a78bfa;--acc3:#6d28d9;
-  --grn:#34d399;--red:#f87171;--amb:#fbbf24;--blu:#60a5fa;
-  --brd:rgba(139,92,246,0.12);
-  --brd2:rgba(255,255,255,0.06);
-  --glow:0 0 40px rgba(139,92,246,0.08);
-  --r:10px;
-}
-*{box-sizing:border-box;margin:0;padding:0;}
-body,html{background:var(--bg0);color:var(--tx0);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;}
-.wrap{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 3rem;}
-.hero{text-align:center;margin-bottom:2rem;position:relative;}
-.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(139,92,246,0.08),transparent 70%);pointer-events:none;}
-.hero h1{font-size:28px;font-weight:600;letter-spacing:-0.5px;background:linear-gradient(135deg,#e8e9ed 0%,#a78bfa 50%,#60a5fa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
-.hero p{font-size:13px;color:var(--tx2);font-weight:300;}
-.hero .tag{display:inline-block;font-size:10px;font-family:'DM Mono',monospace;color:var(--acc2);background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.15);padding:3px 10px;border-radius:20px;margin-top:8px;}
-.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:8px;margin-bottom:18px;}
-@media(min-width:900px){.metrics{grid-template-columns:repeat(8,1fr);}}
-.mc{background:var(--bg2);border:1px solid var(--brd2);border-radius:var(--r);padding:10px 12px;transition:border-color 0.3s,box-shadow 0.3s;}
-.mc:hover{border-color:var(--brd);box-shadow:var(--glow);}
-.mc .lb{font-size:10px;color:var(--tx2);text-transform:uppercase;letter-spacing:0.5px;}
-.mc .vl{font-size:17px;font-weight:600;color:var(--tx0);margin:2px 0;}
-.mc .sub{font-size:10px;color:var(--tx2);}
-.section{background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);padding:16px;margin-bottom:12px;transition:border-color 0.3s;}
-.section:hover{border-color:var(--brd);}
-.section h2{font-size:13px;font-weight:500;color:var(--acc2);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.section h2::before{content:'';width:3px;height:14px;background:var(--acc);border-radius:2px;}
-table{width:100%;border-collapse:collapse;font-size:11.5px;}
-th{text-align:left;padding:6px;color:var(--tx2);font-weight:400;font-size:10px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid var(--brd2);}
-td{padding:5px 6px;border-bottom:1px solid rgba(255,255,255,0.03);}
-tr:hover td{background:rgba(139,92,246,0.03);}
-.bar-wrap{flex:1;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
-.bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--acc3),var(--acc));}
-.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px;}
-select{font-size:12px;padding:5px 10px;background:var(--bg2);color:var(--tx0);border:1px solid var(--brd2);border-radius:6px;outline:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s;}
-select:hover,select:focus{border-color:var(--acc);}
-label{font-size:11px;color:var(--tx2);display:flex;align-items:center;gap:4px;cursor:pointer;}
-input[type=checkbox]{accent-color:var(--acc);width:13px;height:13px;}
-.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:10.5px;color:var(--tx1);max-height:140px;overflow-y:auto;margin-bottom:8px;padding:8px 10px;background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);scrollbar-width:thin;scrollbar-color:var(--bg3) transparent;}
-.legend span{cursor:pointer;transition:opacity 0.2s,color 0.2s;}
-.legend span:hover{opacity:0.75;color:var(--acc2);}
-.chart-wrap{position:relative;width:100%;height:680px;background:linear-gradient(180deg,var(--bg2) 0%,#14151d 100%);border:1px solid var(--brd);border-radius:var(--r);padding:14px 10px 10px 10px;margin-bottom:6px;box-shadow:inset 0 0 60px rgba(139,92,246,0.04),0 4px 30px rgba(0,0,0,0.3);}
-@media(max-width:700px){.chart-wrap{height:520px;}}
-.chart-hint{font-size:10px;color:var(--tx3);font-family:'DM Mono',monospace;text-align:center;margin-bottom:10px;letter-spacing:0.3px;}
-.perspective{font-size:11px;color:var(--tx2);line-height:1.8;}
-.perspective strong{color:var(--tx0);font-weight:500;}
-.persp-row{display:flex;align-items:center;gap:6px;margin-bottom:2px;}
-.persp-row .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
-.footer{text-align:center;font-size:10px;color:var(--tx3);margin-top:16px;font-family:'DM Mono',monospace;}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-@media(max-width:600px){.grid2{grid-template-columns:1fr;}}
-.rec-card{background:var(--bg2);border:1px solid var(--brd2);border-radius:var(--r);padding:10px 12px;}
-.rec-card .rec-label{font-size:10px;color:var(--tx2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;}
-.rec-card .rec-name{font-size:15px;font-weight:500;}
-.rec-card .rec-val{font-size:11px;margin-top:2px;}
-.count-badge{font-size:10px;font-family:'DM Mono',monospace;color:var(--acc2);background:rgba(139,92,246,0.1);padding:2px 8px;border-radius:10px;margin-left:auto;}
-.sources{margin-top:28px;padding:16px 18px;background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);}
-.sources h3{font-size:11px;font-weight:500;color:var(--acc2);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-.sources h3::before{content:'';width:3px;height:12px;background:var(--acc);border-radius:2px;}
-.sources ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;}
-@media(max-width:700px){.sources ul{grid-template-columns:1fr;}}
-.sources li{font-size:10.5px;color:var(--tx2);line-height:1.6;padding-left:10px;position:relative;}
-.sources li::before{content:'›';position:absolute;left:0;color:var(--acc3);}
-.sources a{color:var(--tx1);text-decoration:none;border-bottom:1px dotted var(--tx3);transition:color 0.2s,border-color 0.2s;}
-.sources a:hover{color:var(--acc2);border-bottom-color:var(--acc);}
-.sources .note{font-size:10px;color:var(--tx3);margin-top:10px;padding-top:10px;border-top:1px solid var(--brd2);font-family:'DM Mono',monospace;}
-</style>
-</head>
-<body>
+// Fortunas LATAM dashboard — lazy init when tab activates. Original logic from latam_100_wealth_dashboard.
+(function(){
+  let initialized = false;
 
-<div class="wrap">
-<div class="hero">
-  <h1>Fortunas de Latinoamérica</h1>
-  <p>Trayectorias históricas de riqueza — de millonarios a multibillonarios</p>
-  <span class="tag">100+ personas · Forbes 2026 · Bloomberg · 1968–2026</span>
-</div>
+  window.initFortunas = function() {
+    if (initialized) return;
+    if (typeof Chart === 'undefined') return; // chart.js not loaded yet, skip
+    initialized = true;
+    runDashboard();
+  };
 
-<div class="metrics" id="metricsGrid"></div>
-
-<div class="section"><h2>Hitos de fortuna</h2><div id="tableWrap"></div></div>
-
-<div class="grid2">
-  <div class="section"><h2>Por país</h2><div id="countryBars"></div></div>
-  <div class="section"><h2>Por categoría</h2><div id="catInfo"></div></div>
-</div>
-
-<div class="grid2" style="margin-top:0;">
-  <div id="recGain" class="rec-card"></div>
-  <div id="recDrop" class="rec-card"></div>
-</div>
-
-<div class="section" style="margin-top:12px;"><h2>Perspectiva</h2><div class="perspective" id="perspDiv"></div></div>
-
-<div class="controls" style="margin-top:18px;">
-  <select id="filt">
-    <option value="all" selected>Todos (100+)</option>
-    <option value="top15bill">Top 15 billonarios</option>
-    <option value="billonly">Solo billonarios</option>
-    <option value="millonly">Solo millonarios (&lt;$1B)</option>
-    <option value="brazil">Brasil</option>
-    <option value="mexico">México</option>
-    <option value="argentina">Argentina</option>
-    <option value="chile">Chile</option>
-    <option value="colombia">Colombia</option>
-    <option value="uruguay">Uruguay</option>
-    <option value="sports">Deportistas</option>
-    <option value="ent">Entretenimiento</option>
-    <option value="tech">Tech / Fintech</option>
-    <option value="mag">Magnates</option>
-  </select>
-  <label><input type="checkbox" id="logY" checked> Escala log</label>
-  <label><input type="checkbox" id="showDots" checked> Puntos</label>
-  <span id="countLabel" class="count-badge"></span>
-</div>
-<div class="legend" id="leg"></div>
-<div class="chart-wrap"><canvas id="ch"></canvas></div>
-<div class="chart-hint">click en un nombre de la leyenda para ocultarlo · hover sobre la línea para ver detalles · líneas punteadas = deportistas/entretenimiento</div>
-
-<div class="footer">Forbes 2026 · Bloomberg · Celebrity Net Worth · Transfermarkt<br>Datos recopilados marzo–abril 2026 · Hitos interpolados linealmente entre puntos conocidos</div>
-
-<div class="sources">
-  <h3>Fuentes & referencias para actualizaciones</h3>
-  <ul>
-    <li><a href="https://www.forbes.com/real-time-billionaires/" target="_blank" rel="noopener">Forbes Real-Time Billionaires</a> — ranking en vivo</li>
-    <li><a href="https://www.bloomberg.com/billionaires/" target="_blank" rel="noopener">Bloomberg Billionaires Index</a> — actualizado diario 17:30 NY</li>
-    <li><a href="https://www.forbes.com/billionaires/" target="_blank" rel="noopener">Forbes World's Billionaires (anual)</a> — lista marzo 2026</li>
-    <li><a href="https://mexiconewsdaily.com/business/mexican-billionaires-forbes-2026/" target="_blank" rel="noopener">Mexico News Daily — Forbes 2026 México</a></li>
-    <li><a href="https://www.infobae.com/economia/2026/03/10/ranking-forbes-2026-paolo-rocca-supero-a-marcos-galperin-y-es-el-nuevo-empresario-mas-rico-de-la-argentina/" target="_blank" rel="noopener">Infobae — Forbes 2026 Argentina</a></li>
-    <li><a href="https://www.infobae.com/colombia/2026/03/10/cuatro-empresarios-colombianos-se-destacaron-en-la-clasificacion-de-los-1000-mas-ricos-del-mundo-de-forbes-2026-en-que-posicion-quedaron/" target="_blank" rel="noopener">Infobae — Forbes 2026 Colombia</a></li>
-    <li><a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2026/03/10/mas-ricos-que-nunca-forbes-actualiza-lista-de-multimillonarios-e-iris-fontbona-sube-varios-puestos.shtml" target="_blank" rel="noopener">BioBio Chile — Iris Fontbona Forbes 2026</a></li>
-    <li><a href="https://www.portafolio.co/economia/crecimiento/los-mas-ricos-de-colombia-asi-se-mueve-el-poder-en-2026-jaime-gilinski-y-david-velez-lideran-segun-forbes-490777" target="_blank" rel="noopener">Portafolio — Más ricos de Colombia 2026</a></li>
-    <li><a href="https://www.lanacion.com.ar/economia/ranking-forbes-2026-quienes-son-los-seis-argentinos-mas-ricos-del-mundo-nid10032026/" target="_blank" rel="noopener">La Nación — 6 argentinos más ricos 2026</a></li>
-    <li><a href="https://beinsure.com/world-richest-people/" target="_blank" rel="noopener">Beinsure — Top 50 billonarios 2026</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/List_of_Mexican_billionaires_by_net_worth" target="_blank" rel="noopener">Wikipedia — Mexican billionaires</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/List_of_Brazilians_by_net_worth" target="_blank" rel="noopener">Wikipedia — Brazilian billionaires</a></li>
-    <li><a href="https://www.celebritynetworth.com/" target="_blank" rel="noopener">Celebrity Net Worth</a> — deportistas y entretenimiento</li>
-    <li><a href="https://www.transfermarkt.com/" target="_blank" rel="noopener">Transfermarkt</a> — fichajes y salarios futbolistas</li>
-    <li><a href="https://latintrade.com/2025/10/14/latin-americas-top-50-billionaires/" target="_blank" rel="noopener">Latin Trade — Top 50 LATAM 2025</a></li>
-    <li><a href="https://latinvex.com/latin-america-billionaire-fortune-hits-half-trillion/" target="_blank" rel="noopener">Latinvex — LATAM billionaire fortune</a></li>
-  </ul>
-  <div class="note">nota: Bloomberg Billionaires Index se actualiza a diario al cierre de mercados en NY. Forbes publica su lista anual cada marzo. valores reales pueden variar ±10% según fuente y día.</div>
-</div>
-</div>
-</body>
-</html>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<script>
+  function runDashboard() {
 const P=[
 {n:"Carlos Slim",b:1940,c:"MX",t:"mag",pts:[{y:1991,w:1.7},{y:1994,w:6.6},{y:1996,w:6.1},{y:2000,w:10.8},{y:2005,w:23.8},{y:2007,w:53.1},{y:2008,w:60.6},{y:2009,w:35},{y:2010,w:53.5},{y:2011,w:74},{y:2013,w:73},{y:2015,w:77.1},{y:2016,w:50},{y:2017,w:54.5},{y:2019,w:64},{y:2020,w:52.1},{y:2021,w:62.8},{y:2022,w:81.2},{y:2023,w:93},{y:2024,w:102},{y:2025,w:90.5},{y:2026,w:104.3}]},
 {n:"Germán Larrea",b:1954,c:"MX",t:"mag",pts:[{y:2007,w:5.2},{y:2008,w:7.5},{y:2010,w:13.9},{y:2011,w:16.1},{y:2013,w:14.1},{y:2015,w:11.2},{y:2017,w:13.1},{y:2019,w:13.3},{y:2021,w:25.9},{y:2022,w:30.8},{y:2025,w:28.6},{y:2026,w:43.2}]},
@@ -396,5 +249,5 @@ window.toggle=function(i){const m=chart.getDatasetMeta(i);m.hidden=!m.hidden;doc
 build();
 document.getElementById("filt").addEventListener("change",build);
 document.getElementById("logY").addEventListener("change",build);
-document.getElementById("showDots").addEventListener("change",build);
-</script>
+document.getElementById("showDots").addEventListener("change",build);  }
+})();
