@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fortunas de Latinoamérica · 1968–2026</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%238b5cf6'/><stop offset='1' stop-color='%2360a5fa'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='%230a0b0f'/><path d='M12 48 L12 16 M12 48 L52 48' stroke='%236b6e80' stroke-width='3' stroke-linecap='round' fill='none'/><path d='M14 42 L22 34 L30 38 L40 22 L50 14' stroke='url(%23g)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='50' cy='14' r='3.5' fill='%23a78bfa'/></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400&display=swap');
+:root{
+  --bg0:#0a0b0f;--bg1:#12131a;--bg2:#191b24;--bg3:#21232f;
+  --tx0:#e8e9ed;--tx1:#a3a6b4;--tx2:#6b6e80;--tx3:#44475a;
+  --acc:#8b5cf6;--acc2:#a78bfa;--acc3:#6d28d9;
+  --grn:#34d399;--red:#f87171;--amb:#fbbf24;--blu:#60a5fa;
+  --brd:rgba(139,92,246,0.12);
+  --brd2:rgba(255,255,255,0.06);
+  --glow:0 0 40px rgba(139,92,246,0.08);
+  --r:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body,html{background:var(--bg0);color:var(--tx0);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 3rem;}
+.hero{text-align:center;margin-bottom:2rem;position:relative;}
+.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(139,92,246,0.08),transparent 70%);pointer-events:none;}
+.hero h1{font-size:28px;font-weight:600;letter-spacing:-0.5px;background:linear-gradient(135deg,#e8e9ed 0%,#a78bfa 50%,#60a5fa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:6px;}
+.hero p{font-size:13px;color:var(--tx2);font-weight:300;}
+.hero .tag{display:inline-block;font-size:10px;font-family:'DM Mono',monospace;color:var(--acc2);background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.15);padding:3px 10px;border-radius:20px;margin-top:8px;}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:8px;margin-bottom:18px;}
+@media(min-width:900px){.metrics{grid-template-columns:repeat(8,1fr);}}
+.mc{background:var(--bg2);border:1px solid var(--brd2);border-radius:var(--r);padding:10px 12px;transition:border-color 0.3s,box-shadow 0.3s;}
+.mc:hover{border-color:var(--brd);box-shadow:var(--glow);}
+.mc .lb{font-size:10px;color:var(--tx2);text-transform:uppercase;letter-spacing:0.5px;}
+.mc .vl{font-size:17px;font-weight:600;color:var(--tx0);margin:2px 0;}
+.mc .sub{font-size:10px;color:var(--tx2);}
+.section{background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);padding:16px;margin-bottom:12px;transition:border-color 0.3s;}
+.section:hover{border-color:var(--brd);}
+.section h2{font-size:13px;font-weight:500;color:var(--acc2);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.section h2::before{content:'';width:3px;height:14px;background:var(--acc);border-radius:2px;}
+table{width:100%;border-collapse:collapse;font-size:11.5px;}
+th{text-align:left;padding:6px;color:var(--tx2);font-weight:400;font-size:10px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:1px solid var(--brd2);}
+td{padding:5px 6px;border-bottom:1px solid rgba(255,255,255,0.03);}
+tr:hover td{background:rgba(139,92,246,0.03);}
+.bar-wrap{flex:1;height:4px;background:var(--bg3);border-radius:2px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--acc3),var(--acc));}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px;}
+select{font-size:12px;padding:5px 10px;background:var(--bg2);color:var(--tx0);border:1px solid var(--brd2);border-radius:6px;outline:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color 0.2s;}
+select:hover,select:focus{border-color:var(--acc);}
+label{font-size:11px;color:var(--tx2);display:flex;align-items:center;gap:4px;cursor:pointer;}
+input[type=checkbox]{accent-color:var(--acc);width:13px;height:13px;}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:10.5px;color:var(--tx1);max-height:140px;overflow-y:auto;margin-bottom:8px;padding:8px 10px;background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);scrollbar-width:thin;scrollbar-color:var(--bg3) transparent;}
+.legend span{cursor:pointer;transition:opacity 0.2s,color 0.2s;}
+.legend span:hover{opacity:0.75;color:var(--acc2);}
+.chart-wrap{position:relative;width:100%;height:680px;background:linear-gradient(180deg,var(--bg2) 0%,#14151d 100%);border:1px solid var(--brd);border-radius:var(--r);padding:14px 10px 10px 10px;margin-bottom:6px;box-shadow:inset 0 0 60px rgba(139,92,246,0.04),0 4px 30px rgba(0,0,0,0.3);}
+@media(max-width:700px){.chart-wrap{height:520px;}}
+.chart-hint{font-size:10px;color:var(--tx3);font-family:'DM Mono',monospace;text-align:center;margin-bottom:10px;letter-spacing:0.3px;}
+.perspective{font-size:11px;color:var(--tx2);line-height:1.8;}
+.perspective strong{color:var(--tx0);font-weight:500;}
+.persp-row{display:flex;align-items:center;gap:6px;margin-bottom:2px;}
+.persp-row .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.footer{text-align:center;font-size:10px;color:var(--tx3);margin-top:16px;font-family:'DM Mono',monospace;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:600px){.grid2{grid-template-columns:1fr;}}
+.rec-card{background:var(--bg2);border:1px solid var(--brd2);border-radius:var(--r);padding:10px 12px;}
+.rec-card .rec-label{font-size:10px;color:var(--tx2);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:3px;}
+.rec-card .rec-name{font-size:15px;font-weight:500;}
+.rec-card .rec-val{font-size:11px;margin-top:2px;}
+.count-badge{font-size:10px;font-family:'DM Mono',monospace;color:var(--acc2);background:rgba(139,92,246,0.1);padding:2px 8px;border-radius:10px;margin-left:auto;}
+.sources{margin-top:28px;padding:16px 18px;background:var(--bg1);border:1px solid var(--brd2);border-radius:var(--r);}
+.sources h3{font-size:11px;font-weight:500;color:var(--acc2);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.sources h3::before{content:'';width:3px;height:12px;background:var(--acc);border-radius:2px;}
+.sources ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;}
+@media(max-width:700px){.sources ul{grid-template-columns:1fr;}}
+.sources li{font-size:10.5px;color:var(--tx2);line-height:1.6;padding-left:10px;position:relative;}
+.sources li::before{content:'›';position:absolute;left:0;color:var(--acc3);}
+.sources a{color:var(--tx1);text-decoration:none;border-bottom:1px dotted var(--tx3);transition:color 0.2s,border-color 0.2s;}
+.sources a:hover{color:var(--acc2);border-bottom-color:var(--acc);}
+.sources .note{font-size:10px;color:var(--tx3);margin-top:10px;padding-top:10px;border-top:1px solid var(--brd2);font-family:'DM Mono',monospace;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<div class="hero">
+  <h1>Fortunas de Latinoamérica</h1>
+  <p>Trayectorias históricas de riqueza — de millonarios a multibillonarios</p>
+  <span class="tag">100+ personas · Forbes 2026 · Bloomberg · 1968–2026</span>
+</div>
+
+<div class="metrics" id="metricsGrid"></div>
+
+<div class="section"><h2>Hitos de fortuna</h2><div id="tableWrap"></div></div>
+
+<div class="grid2">
+  <div class="section"><h2>Por país</h2><div id="countryBars"></div></div>
+  <div class="section"><h2>Por categoría</h2><div id="catInfo"></div></div>
+</div>
+
+<div class="grid2" style="margin-top:0;">
+  <div id="recGain" class="rec-card"></div>
+  <div id="recDrop" class="rec-card"></div>
+</div>
+
+<div class="section" style="margin-top:12px;"><h2>Perspectiva</h2><div class="perspective" id="perspDiv"></div></div>
+
+<div class="controls" style="margin-top:18px;">
+  <select id="filt">
+    <option value="all" selected>Todos (100+)</option>
+    <option value="top15bill">Top 15 billonarios</option>
+    <option value="billonly">Solo billonarios</option>
+    <option value="millonly">Solo millonarios (&lt;$1B)</option>
+    <option value="brazil">Brasil</option>
+    <option value="mexico">México</option>
+    <option value="argentina">Argentina</option>
+    <option value="chile">Chile</option>
+    <option value="colombia">Colombia</option>
+    <option value="uruguay">Uruguay</option>
+    <option value="sports">Deportistas</option>
+    <option value="ent">Entretenimiento</option>
+    <option value="tech">Tech / Fintech</option>
+    <option value="mag">Magnates</option>
+  </select>
+  <label><input type="checkbox" id="logY" checked> Escala log</label>
+  <label><input type="checkbox" id="showDots" checked> Puntos</label>
+  <span id="countLabel" class="count-badge"></span>
+</div>
+<div class="legend" id="leg"></div>
+<div class="chart-wrap"><canvas id="ch"></canvas></div>
+<div class="chart-hint">click en un nombre de la leyenda para ocultarlo · hover sobre la línea para ver detalles · líneas punteadas = deportistas/entretenimiento</div>
+
+<div class="footer">Forbes 2026 · Bloomberg · Celebrity Net Worth · Transfermarkt<br>Datos recopilados marzo–abril 2026 · Hitos interpolados linealmente entre puntos conocidos</div>
+
+<div class="sources">
+  <h3>Fuentes & referencias para actualizaciones</h3>
+  <ul>
+    <li><a href="https://www.forbes.com/real-time-billionaires/" target="_blank" rel="noopener">Forbes Real-Time Billionaires</a> — ranking en vivo</li>
+    <li><a href="https://www.bloomberg.com/billionaires/" target="_blank" rel="noopener">Bloomberg Billionaires Index</a> — actualizado diario 17:30 NY</li>
+    <li><a href="https://www.forbes.com/billionaires/" target="_blank" rel="noopener">Forbes World's Billionaires (anual)</a> — lista marzo 2026</li>
+    <li><a href="https://mexiconewsdaily.com/business/mexican-billionaires-forbes-2026/" target="_blank" rel="noopener">Mexico News Daily — Forbes 2026 México</a></li>
+    <li><a href="https://www.infobae.com/economia/2026/03/10/ranking-forbes-2026-paolo-rocca-supero-a-marcos-galperin-y-es-el-nuevo-empresario-mas-rico-de-la-argentina/" target="_blank" rel="noopener">Infobae — Forbes 2026 Argentina</a></li>
+    <li><a href="https://www.infobae.com/colombia/2026/03/10/cuatro-empresarios-colombianos-se-destacaron-en-la-clasificacion-de-los-1000-mas-ricos-del-mundo-de-forbes-2026-en-que-posicion-quedaron/" target="_blank" rel="noopener">Infobae — Forbes 2026 Colombia</a></li>
+    <li><a href="https://www.biobiochile.cl/noticias/economia/actualidad-economica/2026/03/10/mas-ricos-que-nunca-forbes-actualiza-lista-de-multimillonarios-e-iris-fontbona-sube-varios-puestos.shtml" target="_blank" rel="noopener">BioBio Chile — Iris Fontbona Forbes 2026</a></li>
+    <li><a href="https://www.portafolio.co/economia/crecimiento/los-mas-ricos-de-colombia-asi-se-mueve-el-poder-en-2026-jaime-gilinski-y-david-velez-lideran-segun-forbes-490777" target="_blank" rel="noopener">Portafolio — Más ricos de Colombia 2026</a></li>
+    <li><a href="https://www.lanacion.com.ar/economia/ranking-forbes-2026-quienes-son-los-seis-argentinos-mas-ricos-del-mundo-nid10032026/" target="_blank" rel="noopener">La Nación — 6 argentinos más ricos 2026</a></li>
+    <li><a href="https://beinsure.com/world-richest-people/" target="_blank" rel="noopener">Beinsure — Top 50 billonarios 2026</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/List_of_Mexican_billionaires_by_net_worth" target="_blank" rel="noopener">Wikipedia — Mexican billionaires</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/List_of_Brazilians_by_net_worth" target="_blank" rel="noopener">Wikipedia — Brazilian billionaires</a></li>
+    <li><a href="https://www.celebritynetworth.com/" target="_blank" rel="noopener">Celebrity Net Worth</a> — deportistas y entretenimiento</li>
+    <li><a href="https://www.transfermarkt.com/" target="_blank" rel="noopener">Transfermarkt</a> — fichajes y salarios futbolistas</li>
+    <li><a href="https://latintrade.com/2025/10/14/latin-americas-top-50-billionaires/" target="_blank" rel="noopener">Latin Trade — Top 50 LATAM 2025</a></li>
+    <li><a href="https://latinvex.com/latin-america-billionaire-fortune-hits-half-trillion/" target="_blank" rel="noopener">Latinvex — LATAM billionaire fortune</a></li>
+  </ul>
+  <div class="note">nota: Bloomberg Billionaires Index se actualiza a diario al cierre de mercados en NY. Forbes publica su lista anual cada marzo. valores reales pueden variar ±10% según fuente y día.</div>
+</div>
+</div>
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const P=[
+{n:"Carlos Slim",b:1940,c:"MX",t:"mag",pts:[{y:1991,w:1.7},{y:1994,w:6.6},{y:1996,w:6.1},{y:2000,w:10.8},{y:2005,w:23.8},{y:2007,w:53.1},{y:2008,w:60.6},{y:2009,w:35},{y:2010,w:53.5},{y:2011,w:74},{y:2013,w:73},{y:2015,w:77.1},{y:2016,w:50},{y:2017,w:54.5},{y:2019,w:64},{y:2020,w:52.1},{y:2021,w:62.8},{y:2022,w:81.2},{y:2023,w:93},{y:2024,w:102},{y:2025,w:90.5},{y:2026,w:104.3}]},
+{n:"Germán Larrea",b:1954,c:"MX",t:"mag",pts:[{y:2007,w:5.2},{y:2008,w:7.5},{y:2010,w:13.9},{y:2011,w:16.1},{y:2013,w:14.1},{y:2015,w:11.2},{y:2017,w:13.1},{y:2019,w:13.3},{y:2021,w:25.9},{y:2022,w:30.8},{y:2025,w:28.6},{y:2026,w:43.2}]},
+{n:"Eduardo Saverin",b:1982,c:"BR",t:"tech",pts:[{y:2012,w:2},{y:2014,w:5.3},{y:2017,w:8.1},{y:2019,w:9.7},{y:2021,w:14.6},{y:2022,w:10.6},{y:2024,w:29.6},{y:2025,w:34.5},{y:2026,w:39.3}]},
+{n:"Iris Fontbona",b:1943,c:"CL",t:"mag",pts:[{y:2006,w:6},{y:2008,w:10.3},{y:2011,w:17.4},{y:2013,w:12.6},{y:2015,w:10.8},{y:2017,w:12.1},{y:2019,w:15.4},{y:2021,w:23.3},{y:2022,w:22.8},{y:2025,w:25.8},{y:2026,w:37.5}]},
+{n:"Vicky Safra",b:1952,c:"BR",t:"mag",pts:[{y:2015,w:14.1},{y:2017,w:15.2},{y:2019,w:16.9},{y:2021,w:15.1},{y:2022,w:16.7},{y:2025,w:18.5},{y:2026,w:22.8}]},
+{n:"Jorge Paulo Lemann",b:1939,c:"BR",t:"mag",pts:[{y:2000,w:3.4},{y:2005,w:4.4},{y:2008,w:9},{y:2011,w:19},{y:2014,w:25},{y:2017,w:30},{y:2019,w:24.6},{y:2020,w:14.4},{y:2021,w:16.9},{y:2022,w:15.4},{y:2025,w:16},{y:2026,w:18.9}]},
+{n:"David Vélez",b:1982,c:"CO",t:"tech",pts:[{y:2021,w:5.2},{y:2022,w:6.5},{y:2023,w:4.4},{y:2024,w:7.9},{y:2025,w:9},{y:2026,w:14.5}]},
+{n:"André Esteves",b:1968,c:"BR",t:"mag",pts:[{y:2010,w:2.5},{y:2011,w:3.5},{y:2013,w:2.7},{y:2019,w:3.2},{y:2021,w:5.8},{y:2025,w:9.3},{y:2026,w:13}]},
+{n:"Marcel H. Telles",b:1950,c:"BR",t:"mag",pts:[{y:2005,w:2.4},{y:2008,w:5.5},{y:2011,w:10.8},{y:2015,w:12},{y:2017,w:13.5},{y:2019,w:9.9},{y:2021,w:11.5},{y:2025,w:10},{y:2026,w:6.9}]},
+{n:"Jorge Moll Filho",b:1946,c:"BR",t:"mag",pts:[{y:2013,w:4.1},{y:2017,w:5.4},{y:2019,w:6.6},{y:2021,w:11.3},{y:2022,w:9.8},{y:2025,w:6},{y:2026,w:11.3}]},
+{n:"Ricardo Salinas Pliego",b:1956,c:"MX",t:"mag",pts:[{y:2005,w:3.1},{y:2007,w:6.3},{y:2008,w:10.1},{y:2009,w:4.1},{y:2011,w:17.4},{y:2013,w:9.9},{y:2017,w:11.1},{y:2021,w:12.9},{y:2022,w:12.4},{y:2025,w:4.9},{y:2026,w:3.7}]},
+{n:"Carlos A. Sicupira",b:1949,c:"BR",t:"mag",pts:[{y:2005,w:1.7},{y:2008,w:3.5},{y:2011,w:7.3},{y:2015,w:9},{y:2017,w:11.3},{y:2019,w:8.9},{y:2022,w:8.5},{y:2026,w:6.3}]},
+{n:"Marcos Galperin",b:1972,c:"AR",t:"tech",pts:[{y:2018,w:2.7},{y:2019,w:2.3},{y:2020,w:4.4},{y:2021,w:6.1},{y:2022,w:4.1},{y:2024,w:6.3},{y:2025,w:7.5},{y:2026,w:7.2}]},
+{n:"Luis C. Sarmiento",b:1934,c:"CO",t:"mag",pts:[{y:2005,w:3.3},{y:2008,w:5.6},{y:2011,w:10.5},{y:2013,w:12.4},{y:2015,w:13.4},{y:2017,w:12},{y:2019,w:10.8},{y:2025,w:8.9},{y:2026,w:10}]},
+{n:"María A. Aramburuzabala",b:1964,c:"MX",t:"mag",pts:[{y:2006,w:2},{y:2008,w:3.3},{y:2013,w:5},{y:2017,w:5.8},{y:2021,w:5.8},{y:2025,w:9},{y:2026,w:9}]},
+{n:"Alberto Baillères",b:1932,c:"MX",t:"mag",pts:[{y:2005,w:5.6},{y:2008,w:8.4},{y:2011,w:10.4},{y:2013,w:16.5},{y:2015,w:8.7},{y:2019,w:7.4},{y:2022,w:6.7}]},
+{n:"Alejandro Baillères",b:1970,c:"MX",t:"mag",pts:[{y:2023,w:7},{y:2025,w:9},{y:2026,w:15.4}]},
+{n:"Luciano Hang",b:1963,c:"BR",t:"mag",pts:[{y:2019,w:2.2},{y:2021,w:4.8},{y:2022,w:2.7},{y:2025,w:4}]},
+{n:"Alceu E. Feldmann",b:1950,c:"BR",t:"mag",pts:[{y:2019,w:2.1},{y:2021,w:5.4},{y:2025,w:5}]},
+{n:"Orlando Bravo",b:1970,c:"PR",t:"mag",pts:[{y:2019,w:3},{y:2021,w:8},{y:2022,w:6.3},{y:2025,w:5.5}]},
+{n:"Luiza H. Trajano",b:1951,c:"BR",t:"mag",pts:[{y:2019,w:2.4},{y:2021,w:5.3},{y:2022,w:2.3},{y:2025,w:4.2}]},
+{n:"Carlos Rodríguez-Pastor",b:1959,c:"PE",t:"mag",pts:[{y:2013,w:2.3},{y:2017,w:4},{y:2019,w:4.1},{y:2021,w:5.3},{y:2025,w:5.3}]},
+{n:"Paolo Rocca",b:1953,c:"AR",t:"mag",pts:[{y:2008,w:4},{y:2011,w:3.4},{y:2017,w:3.3},{y:2021,w:5.1},{y:2025,w:3.5},{y:2026,w:7.3}]},
+{n:"Andrónico Luksic Craig",b:1954,c:"CL",t:"mag",pts:[{y:2010,w:3.2},{y:2011,w:5.2},{y:2013,w:3.8},{y:2017,w:4.5},{y:2021,w:5.4},{y:2025,w:5.5}]},
+{n:"Jaime Gilinski",b:1958,c:"CO",t:"mag",pts:[{y:2010,w:2.3},{y:2013,w:3.2},{y:2017,w:3},{y:2021,w:4.1},{y:2025,w:3.6},{y:2026,w:14.7}]},
+{n:"Julio Ponce Lerou",b:1946,c:"CL",t:"mag",pts:[{y:2013,w:2.6},{y:2017,w:3.2},{y:2021,w:4.3},{y:2025,w:3.8},{y:2026,w:3.9}]},
+{n:"Horst Paulmann",b:1935,c:"CL",t:"mag",pts:[{y:2008,w:2.9},{y:2011,w:4.2},{y:2013,w:3.5},{y:2017,w:3.1},{y:2021,w:3.5}]},
+{n:"Alex Behring",b:1968,c:"BR",t:"mag",pts:[{y:2017,w:3.1},{y:2019,w:4.2},{y:2021,w:7},{y:2022,w:5.1},{y:2025,w:6.5}]},
+{n:"Juan F. Beckmann Vidal",b:1940,c:"MX",t:"mag",pts:[{y:2013,w:5.5},{y:2017,w:8.4},{y:2019,w:4.3},{y:2021,w:9}]},
+{n:"Alejandro Bulgheroni",b:1944,c:"AR",t:"mag",pts:[{y:2008,w:3.1},{y:2013,w:2.6},{y:2019,w:2.6},{y:2024,w:3.2},{y:2026,w:5.1}]},
+{n:"Pedro de Godoy Bueno",b:1988,c:"BR",t:"mag",pts:[{y:2021,w:5.8},{y:2022,w:3},{y:2025,w:3}]},
+{n:"Guilherme Benchimol",b:1977,c:"BR",t:"tech",pts:[{y:2020,w:2.2},{y:2021,w:4.8},{y:2022,w:2.6},{y:2025,w:3.2}]},
+{n:"Luis Frias",b:1966,c:"BR",t:"tech",pts:[{y:2017,w:2.5},{y:2019,w:3.5},{y:2021,w:4.6},{y:2025,w:4}]},
+{n:"Joesley Batista",b:1977,c:"BR",t:"mag",pts:[{y:2017,w:1.5},{y:2019,w:2.2},{y:2021,w:2.9},{y:2025,w:3.5}]},
+{n:"Wesley Batista",b:1977,c:"BR",t:"mag",pts:[{y:2017,w:1.5},{y:2019,w:2.2},{y:2021,w:2.9},{y:2025,w:3.5}]},
+{n:"Rubens Menin",b:1956,c:"BR",t:"mag",pts:[{y:2017,w:1.2},{y:2019,w:1.5},{y:2021,w:2.2},{y:2025,w:2.5}]},
+{n:"Carlos Hank Rhon",b:1967,c:"MX",t:"mag",pts:[{y:2015,w:2},{y:2019,w:3},{y:2025,w:4},{y:2026,w:4}]},
+{n:"Antonio del Valle Ruiz",b:1936,c:"MX",t:"mag",pts:[{y:2015,w:2.3},{y:2019,w:2.6},{y:2025,w:2.9}]},
+{n:"Fernando Chico Pardo",b:1950,c:"MX",t:"mag",pts:[{y:2015,w:1.8},{y:2019,w:2.2},{y:2025,w:2.8},{y:2026,w:3}]},
+{n:"Maurizio Billi",b:1953,c:"BR",t:"mag",pts:[{y:2019,w:2.5},{y:2021,w:3.9},{y:2025,w:3.5}]},
+{n:"Roberto I. Marinho",b:1948,c:"BR",t:"mag",pts:[{y:2005,w:3.4},{y:2010,w:2.7},{y:2015,w:1.3},{y:2021,w:1.8},{y:2025,w:1.8}]},
+{n:"Abilio Diniz",b:1937,c:"BR",t:"mag",pts:[{y:2005,w:1.8},{y:2010,w:3.5},{y:2013,w:3.2},{y:2017,w:2.8},{y:2021,w:2.6}]},
+{n:"Eduardo Eurnekian",b:1933,c:"AR",t:"mag",pts:[{y:2013,w:1.2},{y:2017,w:1.3},{y:2021,w:1.5},{y:2025,w:1.6},{y:2026,w:4.8}]},
+{n:"Gregorio Pérez Companc",b:1934,c:"AR",t:"mag",pts:[{y:2005,w:2},{y:2010,w:1.8},{y:2015,w:2},{y:2021,w:2.5}]},
+{n:"Jean-Paul Luksic",b:1967,c:"CL",t:"mag",pts:[{y:2013,w:2.5},{y:2017,w:3},{y:2021,w:3.8},{y:2025,w:4.2}]},
+{n:"Álvaro Saieh",b:1950,c:"CL",t:"mag",pts:[{y:2010,w:3.5},{y:2013,w:2.8},{y:2017,w:2.4},{y:2021,w:2.8}]},
+{n:"Bernardo Larraín Matte",b:1970,c:"CL",t:"mag",pts:[{y:2017,w:2},{y:2021,w:2.8},{y:2025,w:3}]},
+{n:"Vito Rodríguez",b:1947,c:"PE",t:"mag",pts:[{y:2015,w:1.2},{y:2019,w:1.6},{y:2025,w:2}]},
+{n:"Eduardo Hochschild",b:1964,c:"PE",t:"mag",pts:[{y:2013,w:1.2},{y:2017,w:1.4},{y:2025,w:1.6}]},
+{n:"Enrique Coppel Luken",b:1957,c:"MX",t:"mag",pts:[{y:2019,w:1.5},{y:2025,w:2}]},
+{n:"Rubens Ometto",b:1951,c:"BR",t:"mag",pts:[{y:2017,w:1},{y:2021,w:1.6},{y:2025,w:2}]},
+{n:"Jayme Garfinkel",b:1947,c:"BR",t:"mag",pts:[{y:2017,w:1},{y:2021,w:1.4},{y:2025,w:1.5}]},
+{n:"Alexandre Grendene",b:1952,c:"BR",t:"mag",pts:[{y:2017,w:1.2},{y:2021,w:1.6},{y:2025,w:1.6}]},
+{n:"Samuel Barata",b:1997,c:"BR",t:"mag",pts:[{y:2023,w:1.2},{y:2025,w:1.4}]},
+{n:"Amelie Voigt Trejes",b:2005,c:"BR",t:"mag",pts:[{y:2026,w:1}]},
+{n:"Sebastián Piñera †",b:1949,c:"CL",t:"mag",pts:[{y:2005,w:1},{y:2010,w:2.2},{y:2013,w:2.5},{y:2017,w:2.7},{y:2021,w:3.2}]},
+{n:"Ernesto Bertarelli",b:1965,c:"BR",t:"mag",pts:[{y:2005,w:5.5},{y:2010,w:7},{y:2015,w:8},{y:2021,w:8.5},{y:2025,w:9.5}]},
+{n:"Cristina Junqueira",b:1982,c:"BR",t:"tech",pts:[{y:2021,w:1.3},{y:2022,w:0.6},{y:2024,w:1.5},{y:2025,w:2.17},{y:2026,w:1.79}]},
+{n:"André Street",b:1983,c:"BR",t:"tech",pts:[{y:2018,w:0.5},{y:2019,w:1.5},{y:2021,w:2.5},{y:2022,w:1.5},{y:2025,w:2}]},
+{n:"Marcos Molina",b:1973,c:"BR",t:"mag",pts:[{y:2019,w:0.8},{y:2021,w:1.5},{y:2025,w:1.8}]},
+{n:"Lionel Messi",b:1987,c:"AR",t:"sports",pts:[{y:2010,w:0.09},{y:2012,w:0.15},{y:2014,w:0.21},{y:2016,w:0.3},{y:2018,w:0.4},{y:2020,w:0.52},{y:2022,w:0.6},{y:2024,w:0.75},{y:2026,w:0.85}]},
+{n:"Neymar Jr.",b:1992,c:"BR",t:"sports",pts:[{y:2014,w:0.04},{y:2016,w:0.09},{y:2018,w:0.19},{y:2020,w:0.2},{y:2022,w:0.27},{y:2024,w:0.35},{y:2025,w:0.35}]},
+{n:"Shakira",b:1977,c:"CO",t:"ent",pts:[{y:2005,w:0.06},{y:2008,w:0.1},{y:2012,w:0.2},{y:2016,w:0.25},{y:2020,w:0.3},{y:2024,w:0.4},{y:2025,w:0.4}]},
+{n:"Ronaldinho",b:1980,c:"BR",t:"sports",pts:[{y:2005,w:0.04},{y:2007,w:0.08},{y:2010,w:0.1},{y:2015,w:0.08},{y:2020,w:0.005}]},
+{n:"Ronaldo Nazário",b:1976,c:"BR",t:"sports",pts:[{y:2002,w:0.04},{y:2005,w:0.08},{y:2010,w:0.16},{y:2015,w:0.25},{y:2020,w:0.35},{y:2024,w:0.45}]},
+{n:"Bad Bunny",b:1994,c:"PR",t:"ent",pts:[{y:2019,w:0.008},{y:2021,w:0.03},{y:2023,w:0.06},{y:2025,w:0.1}]},
+{n:"J Balvin",b:1985,c:"CO",t:"ent",pts:[{y:2017,w:0.01},{y:2020,w:0.03},{y:2022,w:0.04},{y:2025,w:0.06}]},
+{n:"Sofía Vergara",b:1972,c:"CO",t:"ent",pts:[{y:2012,w:0.03},{y:2016,w:0.1},{y:2020,w:0.14},{y:2024,w:0.18}]},
+{n:"Martín Migoya",b:1972,c:"AR",t:"tech",pts:[{y:2014,w:0.05},{y:2018,w:0.25},{y:2021,w:0.9},{y:2022,w:0.6},{y:2025,w:0.75}]},
+{n:"Pierpaolo Barbieri",b:1990,c:"AR",t:"tech",pts:[{y:2019,w:0.02},{y:2021,w:0.15},{y:2024,w:0.2},{y:2025,w:0.25}]},
+{n:"Kun Agüero",b:1988,c:"AR",t:"sports",pts:[{y:2012,w:0.03},{y:2016,w:0.06},{y:2020,w:0.09},{y:2025,w:0.09}]},
+{n:"Luis Suárez",b:1987,c:"UY",t:"sports",pts:[{y:2013,w:0.02},{y:2017,w:0.05},{y:2021,w:0.07},{y:2025,w:0.07}]},
+{n:"Edinson Cavani",b:1987,c:"UY",t:"sports",pts:[{y:2013,w:0.015},{y:2017,w:0.04},{y:2021,w:0.06},{y:2025,w:0.06}]},
+{n:"Diego Forlán",b:1979,c:"UY",t:"sports",pts:[{y:2005,w:0.01},{y:2010,w:0.03},{y:2015,w:0.04}]},
+{n:"Canelo Álvarez",b:1990,c:"MX",t:"sports",pts:[{y:2015,w:0.02},{y:2018,w:0.1},{y:2020,w:0.18},{y:2022,w:0.27},{y:2025,w:0.38}]},
+{n:"Daddy Yankee",b:1977,c:"PR",t:"ent",pts:[{y:2005,w:0.01},{y:2012,w:0.03},{y:2020,w:0.05},{y:2025,w:0.06}]},
+{n:"Di María",b:1988,c:"AR",t:"sports",pts:[{y:2013,w:0.015},{y:2017,w:0.04},{y:2021,w:0.06},{y:2025,w:0.06}]},
+{n:"Kaká",b:1982,c:"BR",t:"sports",pts:[{y:2007,w:0.03},{y:2010,w:0.06},{y:2014,w:0.09},{y:2018,w:0.1}]},
+{n:"James Rodríguez",b:1991,c:"CO",t:"sports",pts:[{y:2014,w:0.02},{y:2017,w:0.04},{y:2020,w:0.05},{y:2025,w:0.05}]},
+{n:"Radamel Falcao",b:1986,c:"CO",t:"sports",pts:[{y:2013,w:0.02},{y:2016,w:0.05},{y:2020,w:0.07},{y:2025,w:0.08}]},
+{n:"Marcelo Vieira",b:1988,c:"BR",t:"sports",pts:[{y:2012,w:0.02},{y:2016,w:0.04},{y:2020,w:0.05},{y:2025,w:0.05}]},
+{n:"Dani Alves",b:1983,c:"BR",t:"sports",pts:[{y:2010,w:0.02},{y:2015,w:0.05},{y:2019,w:0.07},{y:2022,w:0.07}]},
+{n:"Vinicius Jr.",b:2000,c:"BR",t:"sports",pts:[{y:2020,w:0.005},{y:2022,w:0.02},{y:2024,w:0.04},{y:2025,w:0.05}]},
+{n:"Lautaro Martínez",b:1997,c:"AR",t:"sports",pts:[{y:2020,w:0.005},{y:2022,w:0.015},{y:2024,w:0.025},{y:2025,w:0.03}]},
+{n:"Checo Pérez",b:1990,c:"MX",t:"sports",pts:[{y:2015,w:0.01},{y:2018,w:0.02},{y:2021,w:0.04},{y:2023,w:0.06},{y:2025,w:0.07}]},
+{n:"Oscar de la Hoya",b:1973,c:"MX",t:"sports",pts:[{y:2000,w:0.05},{y:2005,w:0.1},{y:2010,w:0.15},{y:2015,w:0.2},{y:2025,w:0.2}]},
+{n:"Julio César Chávez",b:1962,c:"MX",t:"sports",pts:[{y:1993,w:0.02},{y:2000,w:0.04},{y:2010,w:0.04},{y:2025,w:0.04}]},
+{n:"Thalia",b:1971,c:"MX",t:"ent",pts:[{y:2000,w:0.02},{y:2005,w:0.04},{y:2010,w:0.05},{y:2015,w:0.06},{y:2025,w:0.06}]},
+{n:"Juanes",b:1972,c:"CO",t:"ent",pts:[{y:2005,w:0.005},{y:2010,w:0.015},{y:2015,w:0.02},{y:2025,w:0.03}]},
+{n:"Residente",b:1978,c:"PR",t:"ent",pts:[{y:2010,w:0.005},{y:2015,w:0.015},{y:2025,w:0.025}]},
+{n:"Ozuna",b:1992,c:"PR",t:"ent",pts:[{y:2018,w:0.005},{y:2020,w:0.015},{y:2022,w:0.025},{y:2025,w:0.035}]},
+{n:"Maluma",b:1994,c:"CO",t:"ent",pts:[{y:2017,w:0.005},{y:2019,w:0.012},{y:2022,w:0.02},{y:2025,w:0.03}]},
+{n:"Karol G",b:1991,c:"CO",t:"ent",pts:[{y:2019,w:0.003},{y:2021,w:0.008},{y:2023,w:0.025},{y:2025,w:0.045}]},
+{n:"Rauw Alejandro",b:1993,c:"PR",t:"ent",pts:[{y:2020,w:0.002},{y:2022,w:0.008},{y:2024,w:0.015},{y:2025,w:0.02}]},
+{n:"Anitta",b:1993,c:"BR",t:"ent",pts:[{y:2017,w:0.005},{y:2020,w:0.015},{y:2022,w:0.025},{y:2025,w:0.04}]},
+{n:"Salma Hayek",b:1966,c:"MX",t:"ent",pts:[{y:2000,w:0.01},{y:2005,w:0.03},{y:2010,w:0.06},{y:2015,w:0.1},{y:2020,w:0.15},{y:2025,w:0.2}]},
+{n:"Gael García Bernal",b:1978,c:"MX",t:"ent",pts:[{y:2005,w:0.002},{y:2010,w:0.005},{y:2015,w:0.008},{y:2025,w:0.012}]},
+{n:"Eugenio Derbez",b:1961,c:"MX",t:"ent",pts:[{y:2005,w:0.01},{y:2010,w:0.02},{y:2015,w:0.03},{y:2025,w:0.04}]},
+{n:"Rubén Blades",b:1948,c:"PA",t:"ent",pts:[{y:1995,w:0.005},{y:2005,w:0.01},{y:2015,w:0.015},{y:2025,w:0.02}]},
+{n:"Fher (Maná)",b:1959,c:"MX",t:"ent",pts:[{y:2000,w:0.005},{y:2010,w:0.015},{y:2020,w:0.03},{y:2025,w:0.035}]},
+{n:"Gustavo Cerati †",b:1959,c:"AR",t:"ent",pts:[{y:1995,w:0.003},{y:2000,w:0.006},{y:2005,w:0.01},{y:2010,w:0.012}]},
+{n:"Maradona †",b:1960,c:"AR",t:"sports",pts:[{y:1986,w:0.005},{y:1990,w:0.015},{y:1995,w:0.01},{y:2000,w:0.005},{y:2010,w:0.003},{y:2020,w:0.001}]},
+{n:"Pelé †",b:1940,c:"BR",t:"sports",pts:[{y:1970,w:0.003},{y:1977,w:0.01},{y:1990,w:0.03},{y:2000,w:0.06},{y:2010,w:0.08},{y:2020,w:0.1}]},
+{n:"Manny Pacquiao",b:1978,c:"Other",t:"sports",pts:[{y:2008,w:0.03},{y:2010,w:0.08},{y:2015,w:0.15},{y:2020,w:0.19},{y:2025,w:0.22}]},
+];
+
+const typeColors={mag:["#8b5cf6","#6d28d9","#a78bfa","#4c1d95","#c4b5fd","#7c3aed","#5b21b6"],tech:["#34d399","#059669","#6ee7b7","#047857","#a7f3d0","#10b981","#065f46"],sports:["#f97316","#c2410c","#fdba74","#9a3412","#fed7aa","#ea580c","#7c2d12"],ent:["#f472b6","#be185d","#f9a8d4","#9d174d","#fbcfe8","#ec4899","#831843"]};
+const typeLabels={mag:"Magnates",tech:"Tech/Fintech",sports:"Deportistas",ent:"Entretenimiento"};
+const cF={"MX":"","BR":"","CL":"","CO":"","AR":"","PE":"","PR":"","UY":"","PA":"","Other":""};
+const cN={"MX":"México","BR":"Brasil","CL":"Chile","CO":"Colombia","AR":"Argentina","PE":"Perú","PR":"Puerto Rico","UY":"Uruguay","PA":"Panamá","Other":"Otro"};
+const tL={mag:"Magnate",tech:"Tech",sports:"Deporte",ent:"Entretenimiento"};
+const typeIdx={mag:0,tech:0,sports:0,ent:0};
+P.forEach(p=>{p._ci=typeIdx[p.t]++;});
+function getColor(p){const a=typeColors[p.t];return a[p._ci%a.length];}
+
+function interp(pts,th){for(let i=0;i<pts.length;i++){if(pts[i].w>=th){if(i===0)return pts[0].y;const p0=pts[i-1],p1=pts[i];return p0.y+(th-p0.w)/(p1.w-p0.w)*(p1.y-p0.y);}};return null;}
+
+function computeStats(){
+  const ths=[{l:"$10M",v:0.01},{l:"$100M",v:0.1},{l:"$500M",v:0.5},{l:"$1B",v:1},{l:"$10B",v:10},{l:"$50B",v:50},{l:"$100B",v:100}];
+  const ms=ths.map(th=>{const hits=[];P.forEach(p=>{const yr=interp(p.pts,th.v);if(yr!==null)hits.push({name:p.n,age:Math.round(yr-p.b),year:Math.round(yr),c:p.c,t:p.t});});hits.sort((a,b)=>a.age-b.age);return{label:th.l,count:hits.length,avg:hits.length?Math.round(hits.reduce((s,h)=>s+h.age,0)/hits.length):null,youngest:hits[0]||null,oldest:hits[hits.length-1]||null};});
+
+  const countries={},billC={};
+  P.forEach(p=>{countries[p.c]=(countries[p.c]||0)+1;if(Math.max(...p.pts.map(d=>d.w))>=1)billC[p.c]=(billC[p.c]||0)+1;});
+  const topC=Object.entries(countries).sort((a,b)=>b[1]-a[1]);
+  const topBC=Object.entries(billC).sort((a,b)=>b[1]-a[1]);
+  const typeCnt={mag:0,tech:0,sports:0,ent:0},typeMx={mag:0,tech:0,sports:0,ent:0};
+  P.forEach(p=>{typeCnt[p.t]++;const mx=Math.max(...p.pts.map(d=>d.w));if(mx>typeMx[p.t])typeMx[p.t]=mx;});
+  const peak=P.map(p=>({n:p.n,pk:Math.max(...p.pts.map(d=>d.w))})).sort((a,b)=>b.pk-a.pk);
+  let bigG={name:"",gain:0,yr1:0,yr2:0},bigD={name:"",drop:0,yr1:0,yr2:0};
+  P.forEach(p=>{for(let i=1;i<p.pts.length;i++){const g=p.pts[i].w-p.pts[i-1].w;if(g>bigG.gain)bigG={name:p.n,gain:g,yr1:p.pts[i-1].y,yr2:p.pts[i].y};const d=p.pts[i-1].w-p.pts[i].w;if(d>bigD.drop)bigD={name:p.n,drop:d,yr1:p.pts[i-1].y,yr2:p.pts[i].y};}});
+  const youngest=P.reduce((a,b)=>b.b>a.b?b:a);const oldest=P.reduce((a,b)=>b.b<a.b?b:a);
+  const ages=P.map(p=>2026-p.b).sort((a,b)=>a-b);const medAge=ages[Math.floor(ages.length/2)];
+
+  let mg='';
+  mg+=mc("Total personas",P.length,"en el dataset");
+  mg+=mc("Billonarios",ms[3].count,"alcanzaron $1B");
+  mg+=mc("País #1 total",cF[topC[0][0]]+" "+cN[topC[0][0]],topC[0][1]+" personas");
+  mg+=mc("País #1 $1B+",cF[topBC[0][0]]+" "+cN[topBC[0][0]],topBC[0][1]+" billonarios");
+  mg+=mc("Fortuna máx.",peak[0].n,"$"+Math.round(peak[0].pk)+"B");
+  mg+=mc("Edad mediana",medAge+" años","del dataset (2026)");
+  mg+=mc("Más joven",youngest.n,(2026-youngest.b)+" años "+cF[youngest.c]);
+  mg+=mc("Más viejo",oldest.n,(2026-oldest.b)+" años "+cF[oldest.c]);
+  document.getElementById("metricsGrid").innerHTML=mg;
+
+  let tb=`<table><tr><th>Hito</th><th style="text-align:center;">N</th><th style="text-align:center;">Edad prom.</th><th>Más joven</th><th>Más viejo</th></tr>`;
+  ms.forEach(m=>{tb+=`<tr><td style="font-weight:500;">${m.label}</td><td style="text-align:center;">${m.count}</td><td style="text-align:center;">${m.avg!==null?m.avg+"a":"—"}</td><td style="font-size:10.5px;">${m.youngest?cF[m.youngest.c]+" "+m.youngest.name+" <span style='color:var(--tx2);'>("+m.youngest.age+"a, ~"+m.youngest.year+")</span>":"—"}</td><td style="font-size:10.5px;">${m.oldest?cF[m.oldest.c]+" "+m.oldest.name+" <span style='color:var(--tx2);'>("+m.oldest.age+"a, ~"+m.oldest.year+")</span>":"—"}</td></tr>`;});
+  tb+='</table>';
+  document.getElementById("tableWrap").innerHTML=tb;
+
+  let cb='';
+  topC.slice(0,8).forEach(([c,n])=>{const bc=billC[c]||0;cb+=`<div style="display:flex;align-items:center;gap:5px;font-size:11px;margin-bottom:4px;"><span style="min-width:65px;">${cF[c]} ${cN[c]}</span><div class="bar-wrap"><div class="bar-fill" style="width:${Math.round(n/P.length*100)}%;"></div></div><span style="min-width:50px;text-align:right;font-size:10px;color:var(--tx2);">${n} (${bc}B)</span></div>`;});
+  document.getElementById("countryBars").innerHTML=cb;
+
+  let ci='';
+  Object.entries(typeCnt).forEach(([t,n])=>{const wS=typeMx[t]>=1?"$"+Math.round(typeMx[t])+"B":"$"+Math.round(typeMx[t]*1000)+"M";ci+=`<div style="font-size:11px;margin-bottom:5px;display:flex;justify-content:space-between;"><span>${tL[t]}</span><span style="color:var(--tx2);">${n} pers. · max ${wS}</span></div>`;});
+  document.getElementById("catInfo").innerHTML=ci;
+
+  document.getElementById("recGain").innerHTML=`<div class="rec-label">Mayor ganancia</div><div class="rec-name" style="color:var(--grn);">${bigG.name}</div><div class="rec-val" style="color:var(--tx2);">+$${bigG.gain.toFixed(1)}B (${bigG.yr1} → ${bigG.yr2})</div>`;
+  document.getElementById("recDrop").innerHTML=`<div class="rec-label">Mayor caída</div><div class="rec-name" style="color:var(--red);">${bigD.name}</div><div class="rec-val" style="color:var(--tx2);">-$${bigD.drop.toFixed(1)}B (${bigD.yr1} → ${bigD.yr2})</div>`;
+
+  const slimP=Math.round(peak[0].pk);
+  let pv='';
+  pv+=pr("#f97316","Messi ($850M, toda su carrera) = <strong>"+(0.85/slimP*100).toFixed(1)+"%</strong> de Slim ($"+slimP+"B)");
+  pv+=pr("#f472b6","Karol G ($45M) necesitaría <strong>"+Math.round(slimP/0.045).toLocaleString()+"x</strong> su fortuna para alcanzar a Slim");
+  pv+=pr("#60a5fa","3 uruguayos (Suárez+Cavani+Forlán ≈ $170M) = <strong>"+(0.17/slimP*100).toFixed(2)+"%</strong> de Slim");
+  pv+=pr("#f87171","Maradona en su pico ($15M) fue <strong>"+Math.round(slimP/0.015).toLocaleString()+"x</strong> menor que Slim hoy");
+  pv+=pr("#fbbf24","Ronaldinho pasó de $100M a ~$5M — <strong>perdió el 95%</strong> de su fortuna");
+  pv+=pr("#34d399","Billonario LATAM promedio llega al $1B a los <strong>~"+ms[3].avg+" años</strong>");
+  document.getElementById("perspDiv").innerHTML=pv;
+}
+function mc(l,v,s){return `<div class="mc"><div class="lb">${l}</div><div class="vl">${v}</div><div class="sub">${s}</div></div>`;}
+function pr(col,txt){return `<div class="persp-row"><span class="dot" style="background:${col};"></span><span>${txt}</span></div>`;}
+
+computeStats();
+
+function getData(f){
+  if(f==="all")return P;
+  if(f==="top15bill")return P.filter(p=>Math.max(...p.pts.map(d=>d.w))>=5).slice(0,15);
+  if(f==="billonly")return P.filter(p=>Math.max(...p.pts.map(d=>d.w))>=1);
+  if(f==="millonly")return P.filter(p=>Math.max(...p.pts.map(d=>d.w))<1);
+  if(f==="brazil")return P.filter(p=>p.c==="BR");
+  if(f==="mexico")return P.filter(p=>p.c==="MX");
+  if(f==="argentina")return P.filter(p=>p.c==="AR");
+  if(f==="chile")return P.filter(p=>p.c==="CL");
+  if(f==="colombia")return P.filter(p=>p.c==="CO");
+  if(f==="uruguay")return P.filter(p=>p.c==="UY");
+  if(["sports","ent","tech","mag"].includes(f))return P.filter(p=>p.t===f);
+  return P;
+}
+
+let chart;
+function build(){
+  const f=document.getElementById("filt").value;
+  const logY=document.getElementById("logY").checked;
+  const dots=document.getElementById("showDots").checked;
+  const data=getData(f);
+  document.getElementById("countLabel").textContent=data.length+" personas";
+  const gC="rgba(139,92,246,0.06)";const tC="#6b6e80";
+
+  const bw=data.length>60?1.1:data.length>40?1.4:data.length>20?1.8:2.3;
+  const pr=dots?(data.length>60?1.6:data.length>40?2:data.length>20?2.5:3.2):0;
+  const datasets=data.map(p=>{const col=getColor(p);return{label:p.n,data:p.pts.map(d=>({x:d.y,y:d.w})),borderColor:col,backgroundColor:col+"22",borderWidth:bw,hoverBorderWidth:bw+2.2,pointRadius:pr,pointHoverRadius:pr+3,pointHoverBorderWidth:2,pointHoverBorderColor:"#fff",fill:false,tension:0.25,cubicInterpolationMode:"monotone",pointBackgroundColor:col,borderDash:p.t==="sports"?[4,3]:p.t==="ent"?[7,4]:[]};});
+
+  const leg=document.getElementById("leg");leg.innerHTML="";
+  Object.entries(typeLabels).forEach(([t,l])=>{const col=typeColors[t][0];const d=t==="sports"?"dashed":t==="ent"?"dotted":"solid";leg.innerHTML+=`<span style="font-weight:500;border-bottom:2px ${d} ${col};padding-bottom:1px;margin-right:8px;font-size:11px;">${l}</span>`;});
+  leg.innerHTML+="<br>";
+  data.forEach((p,i)=>{const col=getColor(p);const mx=Math.max(...p.pts.map(d=>d.w));const wL=mx>=1?"$"+Math.round(mx)+"B":"$"+Math.round(mx*1000)+"M";leg.innerHTML+=`<span style="display:inline-flex;align-items:center;gap:2px;" onclick="toggle(${i})" id="li${i}"><span style="width:12px;height:2px;border-radius:1px;background:${col};display:inline-block;"></span>${cF[p.c]||""}${p.n} <span style="color:var(--tx3);font-size:8px;">${wL}</span></span>`;});
+
+  const refLines={id:"refLines",beforeDatasetsDraw(chart){if(!logY)return;const{ctx,chartArea:{left,right},scales:{y}}=chart;const refs=[{v:1,l:"$1B",c:"rgba(52,211,153,0.22)"},{v:10,l:"$10B",c:"rgba(167,139,250,0.22)"},{v:100,l:"$100B",c:"rgba(251,191,36,0.22)"}];ctx.save();ctx.setLineDash([4,4]);ctx.lineWidth=1;refs.forEach(r=>{const yp=y.getPixelForValue(r.v);if(yp<y.top||yp>y.bottom)return;ctx.strokeStyle=r.c;ctx.beginPath();ctx.moveTo(left,yp);ctx.lineTo(right,yp);ctx.stroke();ctx.fillStyle=r.c.replace("0.22","0.75");ctx.font="9px 'DM Mono',monospace";ctx.textAlign="left";ctx.fillText(r.l,left+4,yp-3);});ctx.restore();}};
+  if(chart)chart.destroy();
+  chart=new Chart(document.getElementById("ch"),{type:"line",data:{datasets},plugins:[refLines],options:{
+    responsive:true,maintainAspectRatio:false,interaction:{mode:"nearest",intersect:false,axis:"xy"},layout:{padding:{top:10,right:18,bottom:4,left:6}},
+    animation:{duration:600,easing:"easeOutQuart"},
+    scales:{
+      x:{type:"linear",title:{display:true,text:"Año",color:"#a3a6b4",font:{size:12,family:"DM Sans",weight:500},padding:{top:8}},min:1968,max:2027,grid:{color:"rgba(139,92,246,0.06)",tickColor:"transparent"},border:{color:"rgba(139,92,246,0.2)"},ticks:{color:tC,stepSize:5,font:{family:"DM Mono",size:10},padding:6,callback:v=>v%5===0?String(v):""}},
+      y:{type:logY?"logarithmic":"linear",title:{display:true,text:"Fortuna neta (USD)",color:"#a3a6b4",font:{size:12,family:"DM Sans",weight:500},padding:{bottom:8}},min:logY?0.0008:0,max:logY?220:130,grid:{color:"rgba(139,92,246,0.06)",tickColor:"transparent"},border:{color:"rgba(139,92,246,0.2)"},ticks:{color:tC,font:{family:"DM Mono",size:10},padding:6,maxTicksLimit:logY?9:8,callback:v=>v>=1?"$"+Math.round(v)+"B":v>=0.01?"$"+Math.round(v*1000)+"M":"$"+(v*1000).toFixed(1)+"M"}}
+    },
+    plugins:{legend:{display:false},tooltip:{
+      backgroundColor:"rgba(10,11,15,0.96)",borderColor:"rgba(139,92,246,0.45)",borderWidth:1,
+      titleColor:"#e8e9ed",bodyColor:"#a3a6b4",
+      titleFont:{family:"DM Sans",weight:600,size:12},
+      bodyFont:{family:"DM Mono",size:11},
+      padding:{top:8,bottom:8,left:11,right:11},cornerRadius:8,
+      displayColors:true,boxWidth:8,boxHeight:8,boxPadding:5,caretSize:6,
+      callbacks:{
+        title:c=>{const p=data[c[0].datasetIndex];return `${cF[p.c]||""}${cF[p.c]?" ":""}${p.n}`;},
+        beforeBody:c=>{const p=data[c[0].datasetIndex];return `${tL[p.t]} · ${cN[p.c]||""}`;},
+        label:c=>{const p=data[c.datasetIndex];const yr=Math.round(c.parsed.x);const age=yr-p.b;const w=c.parsed.y;const wS=w>=1?"$"+w.toFixed(1)+"B":"$"+Math.round(w*1000)+"M";return `  ${yr}  ·  ${age} años  ·  ${wS}`;}
+      }
+    }}
+  }});
+}
+
+window.toggle=function(i){const m=chart.getDatasetMeta(i);m.hidden=!m.hidden;document.getElementById("li"+i).style.opacity=m.hidden?"0.25":"1";chart.update();};
+
+build();
+document.getElementById("filt").addEventListener("change",build);
+document.getElementById("logY").addEventListener("change",build);
+document.getElementById("showDots").addEventListener("change",build);
+</script>

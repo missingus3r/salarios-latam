@@ -73,9 +73,24 @@
   .row:hover { background: rgba(34,211,238,.06); }
   .scrollbar::-webkit-scrollbar { width:8px; height:8px; }
   .scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.08); border-radius:4px; }
+  .tab-btn.active { background: rgba(34,211,238,0.12); border-color: #22d3ee; color: #22d3ee; }
+  .tab-btn[data-tab="fortunas"].active { background: rgba(167,139,250,0.12); border-color: #a78bfa; color: #a78bfa; }
+  .tab-panel.hidden { display: none; }
+  pre code { white-space: pre; font-family: ui-monospace, monospace; }
 </style>
 </head>
 <body class="min-h-screen">
+
+<!-- Tab nav -->
+<nav class="sticky top-0 z-40 backdrop-blur bg-bg/80 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-6 py-3 flex items-center gap-2">
+    <button data-tab="salarios" class="tab-btn px-4 py-1.5 rounded-lg text-sm font-medium border border-white/10 hover:border-accent transition active:scale-95">Salarios</button>
+    <button data-tab="fortunas" class="tab-btn px-4 py-1.5 rounded-lg text-sm font-medium border border-white/10 hover:border-accent2 transition active:scale-95">Fortunas LATAM 1968-2026</button>
+    <span class="ml-auto text-xs text-muted hidden sm:inline">datos abiertos · CC BY-SA</span>
+  </div>
+</nav>
+
+<div id="tab-salarios" class="tab-panel">
 
 <!-- Hero with three.js 3D scatter -->
 <header class="relative overflow-hidden">
@@ -87,6 +102,7 @@
     <div class="mt-8 flex flex-wrap gap-3 justify-center">
       <a href="#explorar" class="bg-accent text-slate-900 font-semibold px-5 py-2.5 rounded-lg hover:scale-105 transition">Explorar salarios</a>
       <a href="#fuentes" class="border border-accent text-accent px-5 py-2.5 rounded-lg hover:bg-accent/10 transition">Ver fuentes</a>
+      <button id="open-api-modal" type="button" class="border border-accent text-accent px-5 py-2.5 rounded-lg hover:bg-accent/10 transition">API libre</button>
       <a href="#aportar" class="border border-accent2 text-accent2 px-5 py-2.5 rounded-lg hover:bg-accent2/10 transition">Aportar (próximamente)</a>
     </div>
     <div class="mt-10 grid grid-cols-3 gap-6 max-w-2xl mx-auto text-center">
@@ -147,13 +163,73 @@
       </table>
     </div>
     <div id="empty-state" class="hidden p-10 text-center text-muted">Sin resultados con esos filtros.</div>
+    <div class="px-4 py-3 text-xs text-muted border-t border-white/5">Tip: hacé click en cualquier fila para ver la evolución histórica 2020-2026.</div>
   </div>
 </section>
 
+<!-- Modal histórico -->
+<div id="history-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4" role="dialog">
+  <div class="card rounded-2xl max-w-3xl w-full p-6 relative">
+    <button id="history-close" class="absolute top-4 right-4 text-muted hover:text-white text-2xl leading-none" aria-label="Cerrar">&times;</button>
+    <div class="mb-3">
+      <h3 id="history-title" class="text-xl font-bold">—</h3>
+      <p id="history-meta" class="text-sm text-muted">—</p>
+    </div>
+    <div class="bg-panel/40 rounded-xl p-4 border border-white/5">
+      <div id="history-chart" class="w-full" style="min-height:280px"></div>
+    </div>
+    <div id="history-table" class="mt-4 text-sm"></div>
+    <p class="text-xs text-muted mt-4">Series estimadas con metodología de multiplicadores YoY. Para 2026 corresponden al dataset principal; años anteriores son aproximaciones — ver detalle en la sección Fuentes.</p>
+  </div>
+</div>
+
+<!-- Modal API libre -->
+<div id="api-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4" role="dialog">
+  <div class="card rounded-2xl max-w-2xl w-full p-6 relative max-h-[85vh] overflow-y-auto scrollbar">
+    <button id="api-close" class="absolute top-4 right-4 text-muted hover:text-white text-2xl leading-none" aria-label="Cerrar">&times;</button>
+    <h3 class="text-xl font-bold mb-2">API libre</h3>
+    <p class="text-sm text-muted mb-4">Sin auth, sin rate limit. Los datos viven como JSON estático en GitHub Pages — pegale fetch desde donde quieras.</p>
+    <div class="space-y-4 text-sm">
+      <div>
+        <h4 class="font-semibold mb-1">Endpoints</h4>
+        <ul class="space-y-1 text-muted">
+          <li><code class="text-accent">GET /data/salaries.json</code> — registros actuales (192)</li>
+          <li><code class="text-accent">GET /data/history.json</code> — series temporales 2020-2026</li>
+          <li><code class="text-accent">GET /data/meta.json</code> — versión, fuentes, contadores</li>
+        </ul>
+        <p class="text-xs text-muted mt-1">Base: <a class="text-accent hover:underline" href="https://missingus3r.github.io/salarios-latam/" target="_blank" rel="noopener">https://missingus3r.github.io/salarios-latam/</a></p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-1">Ejemplo curl</h4>
+        <pre class="bg-panel/60 rounded-lg p-3 text-xs overflow-x-auto"><code>curl -s https://missingus3r.github.io/salarios-latam/data/salaries.json \
+  | jq '.[] | select(.pais == "Uruguay" and .rol == "Desarrollador Backend")'</code></pre>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-1">JavaScript</h4>
+        <pre class="bg-panel/60 rounded-lg p-3 text-xs overflow-x-auto"><code>const data = await fetch('https://missingus3r.github.io/salarios-latam/data/salaries.json').then(r =&gt; r.json());
+const uy = data.filter(r =&gt; r.pais === 'Uruguay');</code></pre>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-1">Python</h4>
+        <pre class="bg-panel/60 rounded-lg p-3 text-xs overflow-x-auto"><code>import requests
+data = requests.get('https://missingus3r.github.io/salarios-latam/data/salaries.json').json()
+uy = [r for r in data if r['pais'] == 'Uruguay']</code></pre>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-1">Licencia</h4>
+        <p class="text-muted">Datos bajo CC BY-SA 4.0 (heredado de Sysarmy/OpenQube). Atribuí "Salarios LATAM (missingus3r)" si los reusás.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Top 10 por rubro -->
 <section class="max-w-6xl mx-auto px-6 py-10">
-  <h2 class="text-2xl font-bold mb-4">🏆 Top 10 mejor pagos por rubro</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="top-rubros"></div>
+  <div class="flex items-baseline justify-between mb-4 flex-wrap gap-2">
+    <h2 class="text-2xl font-bold">Top 10 mejor pagos por rubro</h2>
+    <span class="text-xs text-muted">todos los rubros del dataset · ranking por mediana global del rubro</span>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="top-rubros"></div>
 </section>
 
 <!-- Fuentes -->
@@ -178,8 +254,19 @@
 
 <footer class="max-w-6xl mx-auto px-6 py-10 text-center text-sm text-muted">
   <p>Datos: <a class="text-accent hover:underline" href="https://sueldos.openqube.io/" target="_blank" rel="noopener">Sysarmy / OpenQube</a> (CC BY-SA) + reportes comunidad. Última actualización: <span id="last-updated">—</span>.</p>
-  <p class="mt-2">Hecho con ❤ por <a class="hover:underline" href="https://github.com/missingus3r" target="_blank" rel="noopener">missingus3r</a> · <a class="hover:underline" href="https://github.com/missingus3r/salarios-latam" target="_blank" rel="noopener">código abierto en GitHub</a></p>
+  <p class="mt-2">Hecho por <a class="hover:underline" href="https://github.com/missingus3r" target="_blank" rel="noopener">missingus3r</a> · <a class="hover:underline" href="https://github.com/missingus3r/salarios-latam" target="_blank" rel="noopener">código abierto en GitHub</a></p>
 </footer>
+
+</div><!-- /tab-salarios -->
+
+<div id="tab-fortunas" class="tab-panel hidden">
+  <div class="max-w-6xl mx-auto px-3 sm:px-6 pt-6 pb-2">
+    <p class="text-xs text-muted mb-3">Dataset complementario: las fortunas más grandes de LATAM 1968–2026 (datos consolidados de medios financieros). Embebido en iframe responsive.</p>
+  </div>
+  <div class="max-w-6xl mx-auto px-3 sm:px-6 pb-12">
+    <iframe id="fortunas-iframe" data-src="./fortunas.html" loading="lazy" class="w-full rounded-2xl border border-white/5 bg-bg2" style="height: 92vh; min-height: 800px;" title="Fortunas de Latinoamérica 1968-2026"></iframe>
+  </div>
+</div><!-- /tab-fortunas -->
 
 <script type="importmap">
 {

@@ -3,6 +3,7 @@ import * as THREE from 'three';
 // ─── State ─────────────────────────────────────────────────────────────
 let DATA = [];
 let META = {};
+let HISTORY = null; // lazy
 let filters = { search: '', pais: '', rubro: '', seniority: '', modalidad: '' };
 
 // ─── Bootstrap ─────────────────────────────────────────────────────────
@@ -19,6 +20,8 @@ async function load() {
   render();
   renderTopRubros();
   renderSources();
+  bindModals();
+  bindTabs();
   document.getElementById('last-updated').textContent = META.last_updated || '—';
   const lu2 = document.getElementById('last-updated-2');
   if (lu2) lu2.textContent = META.last_updated || '—';
@@ -102,7 +105,11 @@ function render() {
   document.getElementById('results-summary').textContent = `${rows.length} resultados — mediana global $${median(rows.map(r => r.median_usd)).toLocaleString('es-AR')} USD`;
   rows.slice(0, 200).forEach(r => {
     const tr = document.createElement('tr');
-    tr.className = 'row border-t border-white/5';
+    tr.className = 'row border-t border-white/5 cursor-pointer';
+    tr.dataset.rol = r.rol;
+    tr.dataset.pais = r.pais;
+    tr.dataset.seniority = r.seniority || '';
+    tr.dataset.modalidad = r.modalidad || '';
     tr.innerHTML = `
       <td class="py-2.5 px-4 font-medium">${escape(r.rol)}</td>
       <td class="py-2.5 px-4 text-muted">${escape(r.rubro)}</td>
@@ -112,7 +119,164 @@ function render() {
       <td class="py-2.5 px-4 text-right font-semibold text-accent">$${(r.median_usd ?? 0).toLocaleString('es-AR')}</td>
       <td class="py-2.5 px-4 text-right text-muted">$${(r.p25_usd ?? 0).toLocaleString('es-AR')} — $${(r.p75_usd ?? 0).toLocaleString('es-AR')}</td>
       <td class="py-2.5 px-4 text-right text-muted">${r.n ?? '—'}</td>`;
+    tr.addEventListener('click', () => openHistoryModal(r));
     tbody.appendChild(tr);
+  });
+}
+
+// ─── History modal ────────────────────────────────────────────────────
+async function loadHistory() {
+  if (HISTORY) return HISTORY;
+  HISTORY = await fetch('./data/history.json').then(r => r.json());
+  return HISTORY;
+}
+
+async function openHistoryModal(rec) {
+  const modal = document.getElementById('history-modal');
+  const title = document.getElementById('history-title');
+  const meta = document.getElementById('history-meta');
+  const chart = document.getElementById('history-chart');
+  const tableEl = document.getElementById('history-table');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  title.textContent = rec.rol;
+  meta.textContent = `${rec.pais} · ${rec.seniority || '—'} · ${rec.modalidad || '—'} · rubro ${rec.rubro}`;
+  chart.innerHTML = '<div class="text-muted text-sm py-12 text-center">Cargando histórico…</div>';
+  tableEl.innerHTML = '';
+  try {
+    const h = await loadHistory();
+    const series = h.series.find(s =>
+      s.rol === rec.rol && s.pais === rec.pais && s.seniority === rec.seniority && s.modalidad === rec.modalidad
+    );
+    if (!series) {
+      chart.innerHTML = '<div class="text-muted text-sm py-12 text-center">Sin serie histórica disponible para esta combinación.</div>';
+      return;
+    }
+    chart.innerHTML = renderLineChart(series.history);
+    tableEl.innerHTML = renderHistoryTable(series.history);
+  } catch (e) {
+    chart.innerHTML = `<div class="text-bad text-sm py-12 text-center">Error cargando histórico: ${escape(e.message)}</div>`;
+  }
+}
+
+function renderLineChart(history) {
+  // Inline SVG line chart, no deps
+  const W = 720, H = 300, PAD_L = 56, PAD_R = 20, PAD_T = 24, PAD_B = 40;
+  const xs = history.map(d => d.year);
+  const yMedian = history.map(d => d.median_usd);
+  const yP25 = history.map(d => d.p25_usd);
+  const yP75 = history.map(d => d.p75_usd);
+  const yMin = Math.min(...yP25);
+  const yMax = Math.max(...yP75);
+  const yPad = (yMax - yMin) * 0.08;
+  const y0 = Math.max(0, yMin - yPad);
+  const y1 = yMax + yPad;
+  const xMin = Math.min(...xs);
+  const xMax = Math.max(...xs);
+  const xScale = year => PAD_L + (W - PAD_L - PAD_R) * (year - xMin) / Math.max(1, (xMax - xMin));
+  const yScale = v => PAD_T + (H - PAD_T - PAD_B) * (1 - (v - y0) / Math.max(1, (y1 - y0)));
+
+  // band p25–p75
+  const bandTop = history.map(d => `${xScale(d.year)},${yScale(d.p75_usd)}`).join(' ');
+  const bandBottomRev = [...history].reverse().map(d => `${xScale(d.year)},${yScale(d.p25_usd)}`).join(' ');
+  const bandPath = `<polygon points="${bandTop} ${bandBottomRev}" fill="rgba(34,211,238,0.12)" stroke="none"/>`;
+
+  // median line
+  const medianPath = history.map((d, i) => `${i === 0 ? 'M' : 'L'} ${xScale(d.year)} ${yScale(d.median_usd)}`).join(' ');
+  const linePath = `<path d="${medianPath}" fill="none" stroke="#22d3ee" stroke-width="2.5"/>`;
+
+  // points + labels
+  const points = history.map(d => `
+    <circle cx="${xScale(d.year)}" cy="${yScale(d.median_usd)}" r="4" fill="#22d3ee"/>
+    <text x="${xScale(d.year)}" y="${yScale(d.median_usd) - 10}" fill="#e2e8f0" font-size="11" text-anchor="middle">$${d.median_usd.toLocaleString('es-AR')}</text>
+  `).join('');
+
+  // axes
+  const xAxis = xs.map(yr => `<text x="${xScale(yr)}" y="${H - 14}" fill="#94a3b8" font-size="11" text-anchor="middle">${yr}</text>`).join('');
+  // y-axis ticks (3 ticks)
+  const yTicks = [y0, (y0 + y1) / 2, y1].map(v => {
+    const y = yScale(v);
+    return `<line x1="${PAD_L}" y1="${y}" x2="${W - PAD_R}" y2="${y}" stroke="rgba(255,255,255,0.06)"/>
+            <text x="${PAD_L - 8}" y="${y + 4}" fill="#94a3b8" font-size="10" text-anchor="end">$${Math.round(v).toLocaleString('es-AR')}</text>`;
+  }).join('');
+
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" class="w-full">
+    ${yTicks}
+    ${bandPath}
+    ${linePath}
+    ${points}
+    ${xAxis}
+    <text x="${PAD_L}" y="${PAD_T - 8}" fill="#94a3b8" font-size="10">Mediana USD · banda P25–P75</text>
+  </svg>`;
+}
+
+function renderHistoryTable(history) {
+  return `<table class="w-full text-sm">
+    <thead class="text-xs uppercase text-muted">
+      <tr>
+        <th class="text-left py-1.5 px-2">Año</th>
+        <th class="text-right py-1.5 px-2">Mediana</th>
+        <th class="text-right py-1.5 px-2">P25</th>
+        <th class="text-right py-1.5 px-2">P75</th>
+        <th class="text-right py-1.5 px-2">N</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${history.map(d => `<tr class="border-t border-white/5">
+        <td class="py-1.5 px-2 font-medium">${d.year}</td>
+        <td class="py-1.5 px-2 text-right text-accent font-semibold">$${d.median_usd.toLocaleString('es-AR')}</td>
+        <td class="py-1.5 px-2 text-right text-muted">$${d.p25_usd.toLocaleString('es-AR')}</td>
+        <td class="py-1.5 px-2 text-right text-muted">$${d.p75_usd.toLocaleString('es-AR')}</td>
+        <td class="py-1.5 px-2 text-right text-muted">${d.n}</td>
+      </tr>`).join('')}
+    </tbody>
+  </table>`;
+}
+
+function bindTabs() {
+  const buttons = document.querySelectorAll('.tab-btn');
+  const panels = { salarios: document.getElementById('tab-salarios'), fortunas: document.getElementById('tab-fortunas') };
+  function activate(name) {
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+    Object.entries(panels).forEach(([k, p]) => p.classList.toggle('hidden', k !== name));
+    if (name === 'fortunas') {
+      const iframe = document.getElementById('fortunas-iframe');
+      if (iframe && !iframe.src && iframe.dataset.src) iframe.src = iframe.dataset.src;
+    }
+    if (location.hash !== '#' + name) history.replaceState(null, '', '#' + name);
+  }
+  buttons.forEach(b => b.addEventListener('click', () => activate(b.dataset.tab)));
+  // initial: from hash or default salarios
+  const initial = (location.hash || '').replace('#', '');
+  activate(initial === 'fortunas' ? 'fortunas' : 'salarios');
+}
+
+function bindModals() {
+  document.getElementById('history-close').addEventListener('click', () => {
+    const m = document.getElementById('history-modal');
+    m.classList.add('hidden'); m.classList.remove('flex');
+  });
+  document.getElementById('api-close').addEventListener('click', () => {
+    const m = document.getElementById('api-modal');
+    m.classList.add('hidden'); m.classList.remove('flex');
+  });
+  document.getElementById('open-api-modal').addEventListener('click', () => {
+    const m = document.getElementById('api-modal');
+    m.classList.remove('hidden'); m.classList.add('flex');
+  });
+  // close modals on backdrop click
+  ['history-modal', 'api-modal'].forEach(id => {
+    const m = document.getElementById(id);
+    m.addEventListener('click', e => { if (e.target === m) { m.classList.add('hidden'); m.classList.remove('flex'); } });
+  });
+  // ESC closes any open modal
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      ['history-modal', 'api-modal'].forEach(id => {
+        const m = document.getElementById(id);
+        m.classList.add('hidden'); m.classList.remove('flex');
+      });
+    }
   });
 }
 
@@ -121,8 +285,7 @@ function renderTopRubros() {
   DATA.forEach(r => { (byRubro[r.rubro] = byRubro[r.rubro] || []).push(r); });
   const top = Object.entries(byRubro)
     .map(([rubro, arr]) => ({ rubro, mediana: median(arr.map(a => a.median_usd)), n: arr.length, top10: arr.sort((a, b) => b.median_usd - a.median_usd).slice(0, 10) }))
-    .sort((a, b) => b.mediana - a.mediana)
-    .slice(0, 6);
+    .sort((a, b) => b.mediana - a.mediana);
   const html = top.map(t => `
     <div class="card rounded-2xl p-5">
       <div class="flex items-baseline justify-between mb-3">
