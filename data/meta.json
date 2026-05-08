@@ -1,8 +1,8 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "last_updated": "2026-05-08",
-  "records": 64,
-  "rubros": 9,
+  "records": 192,
+  "rubros": 18,
   "paises": 8,
   "sources": [
     {
@@ -55,10 +55,38 @@
       "scope": "Tendencias talento + skills > cargo"
     },
     {
+      "name": "Deel — Salario mínimo LATAM 2026",
+      "url": "https://www.deel.com/es/blog/salario-minimo-latam/",
+      "license": "Editorial",
+      "fetched": "2026-05-08",
+      "scope": "Salario mínimo + benchmark salarios non-tech por país"
+    },
+    {
+      "name": "Bloomberg Línea — Salarios mínimos LATAM 2026",
+      "url": "https://www.bloomberglinea.com/economia/salario-minimo-2026-listado-de-los-mas-fuertes-y-debiles-de-latinoamerica/",
+      "license": "Editorial",
+      "fetched": "2026-05-08",
+      "scope": "Ranking mínimos + ajustes regionales"
+    },
+    {
+      "name": "El Observador — Ranking salario mínimo LATAM 2026",
+      "url": "https://www.elobservador.com.uy/estados-unidos/america-latina/ranking-del-salario-minimo-latinoamerica-2026-cuanto-se-gana-cada-pais-n6032229",
+      "license": "Editorial",
+      "fetched": "2026-05-08",
+      "scope": "Salario mínimo en USD por país (UY, AR, CL, MX, etc.)"
+    },
+    {
+      "name": "Alto Nivel — Salario mínimo LATAM 2026",
+      "url": "https://www.altonivel.com.mx/salario-minimo-en-latinoamerica-2026-cuanto-se-gana-en-mexico-argentina-o-venezuela/",
+      "license": "Editorial",
+      "fetched": "2026-05-08",
+      "scope": "Comparativa salarial LATAM con foco México"
+    },
+    {
       "name": "Comunidad (formulario anónimo)",
       "license": "CC0",
       "scope": "Aportes voluntarios via /aportar"
     }
   ],
-  "note": "Datos consolidados de Sysarmy 2026.01 + agregadores LATAM 2026 (HR Oasis, Mismo, Interfell, NextIdea). Coberturas país: AR/UY/CL/CO/MX/BR/CR/PA. Cron diario actualiza con reportes nuevos. Las medianas en USD son pago bruto mensual o equivalente; para roles US-pay (CR/PA Sr) los rangos reflejan el mercado nearshore premium."
+  "note": "Datos consolidados de Sysarmy 2026.01 + agregadores LATAM 2026 (HR Oasis, Mismo, Interfell, NextIdea, Deel, Bloomberg Línea, El Observador, Alto Nivel). Coberturas país: AR/UY/CL/CO/MX/BR/CR/PA. v0.3 agrega 16 roles fuera del campo tech (salud, educación, retail, construcción, transporte, gastronomía, industria, servicios, seguridad pública) en los 8 países como comparativa común. Cron diario actualiza con reportes nuevos. Las medianas en USD son pago bruto mensual o equivalente; para roles US-pay (CR/PA Sr) los rangos reflejan el mercado nearshore premium; los roles non-tech reflejan mercado local presencial con paridad PPP."
 }
