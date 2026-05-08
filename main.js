@@ -28,6 +28,12 @@ async function load() {
   document.getElementById('last-updated').textContent = META.last_updated || '—';
   const lu2 = document.getElementById('last-updated-2');
   if (lu2) lu2.textContent = META.last_updated || '—';
+  const stamp = document.getElementById('last-update-stamp');
+  if (stamp) {
+    const dateStr = META.last_updated || '—';
+    const timeStr = META.last_updated_time || '';
+    stamp.textContent = `Última actualización · ${dateStr}${timeStr ? ' ' + timeStr : ''}`;
+  }
 }
 
 function renderSources() {
