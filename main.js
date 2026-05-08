@@ -404,8 +404,9 @@ function median(arr) {
 function escape(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
 // ─── Three.js hero scatter ────────────────────────────────────────────
-function initHero() {
-  const canvas = document.getElementById('hero-canvas');
+function initHero(canvasId = 'hero-canvas') {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, 2, 0.1, 100);
@@ -476,5 +477,6 @@ function initHero() {
   animate();
 }
 
-initHero();
+initHero('hero-canvas');
+initHero('hero-canvas-fortunas');
 load().catch(e => { console.error(e); document.getElementById('results-summary').textContent = 'Error cargando datos.'; });

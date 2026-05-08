@@ -67,7 +67,7 @@
 
 <style>
   body { font-family: 'Inter', ui-sans-serif, system-ui; background:#0b1020; color:#e2e8f0; }
-  #hero-canvas { position:absolute; inset:0; z-index:0; pointer-events:none; opacity: 0.4; filter: blur(2px); transition: opacity 0.3s, filter 0.3s; }
+  #hero-canvas, #hero-canvas-fortunas { position:absolute; inset:0; z-index:0; pointer-events:none; opacity: 0.4; filter: blur(2px); transition: opacity 0.3s, filter 0.3s; }
   .glow { text-shadow: 0 0 24px rgba(34,211,238,.45); }
   .card { background: linear-gradient(180deg, rgba(255,255,255,.04) 0%, rgba(255,255,255,.01) 100%); border:1px solid rgba(255,255,255,.06); }
   .pill { background: rgba(167,139,250,.12); border:1px solid rgba(167,139,250,.35); color:#c4b5fd; }
@@ -355,6 +355,7 @@ uy = [r for r in data if r['pais'] == 'Uruguay']</code></pre>
 
 <!-- Hero unificado con el de Salarios -->
 <header class="relative overflow-hidden">
+  <canvas id="hero-canvas-fortunas"></canvas>
   <div class="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-24 text-center">
     <span class="pill px-3 py-1 rounded-full text-xs uppercase tracking-wider">v0.1 · datos abiertos · 1968–2026</span>
     <h1 class="mt-6 text-5xl md:text-6xl font-extrabold tracking-tight glow">Fortunas <span class="text-accent2">LATAM</span></h1>
