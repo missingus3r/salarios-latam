@@ -1,12 +1,64 @@
 {
-  "version": "0.1.0",
-  "last_updated": "2026-05-04",
-  "records": 33,
+  "version": "0.2.0",
+  "last_updated": "2026-05-08",
+  "records": 64,
   "rubros": 9,
-  "paises": 5,
+  "paises": 8,
   "sources": [
-    {"name": "Sysarmy / OpenQube", "url": "https://sueldos.openqube.io/", "license": "CC BY-SA 4.0"},
-    {"name": "Comunidad (formulario anónimo)", "license": "CC0"}
+    {
+      "name": "Sysarmy / OpenQube — Encuesta sueldos 2026.01",
+      "url": "https://sueldos.openqube.io/encuesta-sueldos-2026.01/",
+      "license": "CC BY-SA 4.0",
+      "fetched": "2026-05-08",
+      "scope": "Argentina + LATAM, IT, semestral"
+    },
+    {
+      "name": "Sysarmy blog (encuestas históricas + 2025/2026 H1)",
+      "url": "https://sysarmy.com/blog/tags/sueldos/",
+      "license": "CC BY-SA 4.0",
+      "fetched": "2026-05-08",
+      "scope": "Argentina"
+    },
+    {
+      "name": "HR Oasis — Latin America Developer Salaries 2026 Complete Guide",
+      "url": "https://hroasis.com/latin-america-developer-salaries-2026-complete-guide/",
+      "license": "Editorial / agregador",
+      "fetched": "2026-05-08",
+      "scope": "8 países LATAM por seniority"
+    },
+    {
+      "name": "Interfell — Guía salarial LATAM 2026",
+      "url": "https://www.interfell.com/guia-salarial-latinoamerica",
+      "license": "Editorial",
+      "fetched": "2026-05-08",
+      "scope": "Tendencias + rangos AR/UY/CL/CO/MX/BR"
+    },
+    {
+      "name": "Mismo Team — LATAM Software Engineer Salary Guide 2026",
+      "url": "https://mismo.team/latam-software-engineer-salary-guide-averages-costs/",
+      "license": "Editorial / agregador",
+      "fetched": "2026-05-08",
+      "scope": "Promedios senior por país, hourly rates"
+    },
+    {
+      "name": "NextIdea Tech — CTO Guide to LATAM Dev Costs 2026",
+      "url": "https://blog.nextideatech.com/what-are-the-average-salaries-for-software-developers-in-latin-american-countries/",
+      "license": "Editorial",
+      "fetched": "2026-05-08",
+      "scope": "Costs + compliance LATAM"
+    },
+    {
+      "name": "IT-Talent — Radiografía del Talento Tech 2026",
+      "url": "https://it-talenthh.com/en/2026/01/30/radiografia-del-talento-tech-2026-por-que-el-cargo-ya-no-define-el-sueldo-en-latam/",
+      "license": "Editorial",
+      "fetched": "2026-05-08",
+      "scope": "Tendencias talento + skills > cargo"
+    },
+    {
+      "name": "Comunidad (formulario anónimo)",
+      "license": "CC0",
+      "scope": "Aportes voluntarios via /aportar"
+    }
   ],
-  "note": "Datos de bootstrap basados en agregados públicos (Sysarmy 2024 H2). Cron diario actualiza con reportes nuevos."
+  "note": "Datos consolidados de Sysarmy 2026.01 + agregadores LATAM 2026 (HR Oasis, Mismo, Interfell, NextIdea). Coberturas país: AR/UY/CL/CO/MX/BR/CR/PA. Cron diario actualiza con reportes nuevos. Las medianas en USD son pago bruto mensual o equivalente; para roles US-pay (CR/PA Sr) los rangos reflejan el mercado nearshore premium."
 }

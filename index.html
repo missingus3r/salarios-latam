@@ -86,6 +86,7 @@
     <p class="mt-4 text-lg text-slate-300 max-w-2xl mx-auto">Comparador anónimo de sueldos tech y profesional en Latinoamérica. Filtrá por rubro, seniority, país y modalidad. Datos abiertos de Sysarmy + reportes anónimos de la comunidad.</p>
     <div class="mt-8 flex flex-wrap gap-3 justify-center">
       <a href="#explorar" class="bg-accent text-slate-900 font-semibold px-5 py-2.5 rounded-lg hover:scale-105 transition">Explorar salarios</a>
+      <a href="#fuentes" class="border border-accent text-accent px-5 py-2.5 rounded-lg hover:bg-accent/10 transition">Ver fuentes</a>
       <a href="#aportar" class="border border-accent2 text-accent2 px-5 py-2.5 rounded-lg hover:bg-accent2/10 transition">Aportar mi sueldo</a>
     </div>
     <div class="mt-10 grid grid-cols-3 gap-6 max-w-2xl mx-auto text-center">
@@ -152,6 +153,16 @@
 <section class="max-w-6xl mx-auto px-6 py-10">
   <h2 class="text-2xl font-bold mb-4">🏆 Top 10 mejor pagos por rubro</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="top-rubros"></div>
+</section>
+
+<!-- Fuentes -->
+<section id="fuentes" class="max-w-6xl mx-auto px-6 py-10">
+  <div class="flex items-baseline justify-between mb-4">
+    <h2 class="text-2xl font-bold">Fuentes</h2>
+    <span class="text-xs text-muted">datos consolidados al <span id="last-updated-2">—</span></span>
+  </div>
+  <p class="text-slate-300 mb-6 max-w-3xl">De dónde sale la data. Mezclamos encuestas comunitarias con licencia abierta (Sysarmy/OpenQube) y agregadores editoriales 2026 que publican promedios por país y seniority.</p>
+  <div id="sources-grid" class="grid md:grid-cols-2 gap-4"></div>
 </section>
 
 <!-- Aportar -->

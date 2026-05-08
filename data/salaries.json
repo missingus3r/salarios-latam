@@ -37,5 +37,43 @@
   {"rol":"Marketing Manager","rubro":"Marketing","seniority":"Senior","pais":"Argentina","modalidad":"Híbrido","median_usd":2200,"p25_usd":1700,"p75_usd":2900,"n":56,"tags":[]},
   {"rol":"Sales / Account Executive","rubro":"Ventas","seniority":"Senior","pais":"Argentina","modalidad":"Remoto","median_usd":2700,"p25_usd":1800,"p75_usd":4200,"n":68,"tags":[]},
   {"rol":"Operations Manager","rubro":"Operaciones","seniority":"Senior","pais":"Argentina","modalidad":"Híbrido","median_usd":2400,"p25_usd":1800,"p75_usd":3200,"n":35,"tags":[]},
-  {"rol":"Project Manager","rubro":"Producto","seniority":"Senior","pais":"Argentina","modalidad":"Remoto","median_usd":2800,"p25_usd":2100,"p75_usd":3700,"n":62,"tags":[]}
+  {"rol":"Project Manager","rubro":"Producto","seniority":"Senior","pais":"Argentina","modalidad":"Remoto","median_usd":2800,"p25_usd":2100,"p75_usd":3700,"n":62,"tags":[]},
+
+  {"rol":"Desarrollador Backend","rubro":"Software","seniority":"Senior","pais":"Brasil","modalidad":"Remoto","median_usd":2700,"p25_usd":2000,"p75_usd":3600,"n":156,"tags":["java","spring","kotlin"]},
+  {"rol":"Desarrollador Frontend","rubro":"Software","seniority":"Senior","pais":"Brasil","modalidad":"Remoto","median_usd":2500,"p25_usd":1900,"p75_usd":3300,"n":118,"tags":["react","typescript"]},
+  {"rol":"DevOps / SRE","rubro":"Software","seniority":"Senior","pais":"Brasil","modalidad":"Remoto","median_usd":3100,"p25_usd":2300,"p75_usd":4000,"n":82,"tags":["aws","kubernetes"]},
+  {"rol":"Data Engineer","rubro":"Data","seniority":"Senior","pais":"Brasil","modalidad":"Remoto","median_usd":2900,"p25_usd":2200,"p75_usd":3800,"n":94,"tags":["spark","airflow"]},
+  {"rol":"ML Engineer","rubro":"Data","seniority":"Senior","pais":"Brasil","modalidad":"Remoto","median_usd":3500,"p25_usd":2600,"p75_usd":4600,"n":48,"tags":["pytorch","mlops"]},
+
+  {"rol":"Desarrollador Backend","rubro":"Software","seniority":"Senior","pais":"Costa Rica","modalidad":"Remoto","median_usd":4400,"p25_usd":3300,"p75_usd":5500,"n":62,"tags":["java","node"]},
+  {"rol":"DevOps / SRE","rubro":"Software","seniority":"Senior","pais":"Costa Rica","modalidad":"Remoto","median_usd":4900,"p25_usd":3700,"p75_usd":6100,"n":38,"tags":["aws","kubernetes"]},
+  {"rol":"ML Engineer","rubro":"Data","seniority":"Senior","pais":"Costa Rica","modalidad":"Remoto","median_usd":5500,"p25_usd":4100,"p75_usd":6900,"n":21,"tags":["pytorch"]},
+  {"rol":"Tech Lead","rubro":"Software","seniority":"Lead/Staff","pais":"Costa Rica","modalidad":"Remoto","median_usd":5800,"p25_usd":4500,"p75_usd":7200,"n":29,"tags":[]},
+  {"rol":"Desarrollador Backend","rubro":"Software","seniority":"Junior","pais":"Costa Rica","modalidad":"Remoto","median_usd":1600,"p25_usd":1200,"p75_usd":2100,"n":47,"tags":[]},
+
+  {"rol":"Desarrollador Backend","rubro":"Software","seniority":"Senior","pais":"Panamá","modalidad":"Remoto","median_usd":4100,"p25_usd":3100,"p75_usd":5200,"n":54,"tags":["node","python"]},
+  {"rol":"DevOps / SRE","rubro":"Software","seniority":"Senior","pais":"Panamá","modalidad":"Remoto","median_usd":4500,"p25_usd":3400,"p75_usd":5700,"n":31,"tags":["aws"]},
+  {"rol":"Data Engineer","rubro":"Data","seniority":"Senior","pais":"Panamá","modalidad":"Remoto","median_usd":4300,"p25_usd":3200,"p75_usd":5400,"n":24,"tags":[]},
+  {"rol":"Desarrollador Backend","rubro":"Software","seniority":"Junior","pais":"Panamá","modalidad":"Remoto","median_usd":1500,"p25_usd":1100,"p75_usd":1900,"n":38,"tags":[]},
+
+  {"rol":"Desarrollador Frontend","rubro":"Software","seniority":"Semi Senior","pais":"Uruguay","modalidad":"Remoto","median_usd":1800,"p25_usd":1400,"p75_usd":2300,"n":48,"tags":["react"]},
+  {"rol":"Desarrollador Backend","rubro":"Software","seniority":"Junior","pais":"Uruguay","modalidad":"Remoto","median_usd":1500,"p25_usd":1100,"p75_usd":2000,"n":62,"tags":[]},
+  {"rol":"Mobile Developer","rubro":"Software","seniority":"Senior","pais":"Uruguay","modalidad":"Remoto","median_usd":3300,"p25_usd":2500,"p75_usd":4300,"n":36,"tags":["flutter","react native","swift"]},
+  {"rol":"Cybersecurity Engineer","rubro":"Seguridad","seniority":"Senior","pais":"Uruguay","modalidad":"Remoto","median_usd":3900,"p25_usd":3000,"p75_usd":5100,"n":18,"tags":["pentest"]},
+  {"rol":"ML Engineer","rubro":"Data","seniority":"Senior","pais":"Uruguay","modalidad":"Remoto","median_usd":4200,"p25_usd":3200,"p75_usd":5400,"n":24,"tags":["pytorch"]},
+
+  {"rol":"Desarrollador Frontend","rubro":"Software","seniority":"Senior","pais":"Chile","modalidad":"Remoto","median_usd":3100,"p25_usd":2400,"p75_usd":4000,"n":102,"tags":["react"]},
+  {"rol":"ML Engineer","rubro":"Data","seniority":"Senior","pais":"Chile","modalidad":"Remoto","median_usd":4200,"p25_usd":3200,"p75_usd":5500,"n":47,"tags":[]},
+  {"rol":"Mobile Developer","rubro":"Software","seniority":"Senior","pais":"Chile","modalidad":"Remoto","median_usd":3000,"p25_usd":2300,"p75_usd":3900,"n":58,"tags":[]},
+  {"rol":"Tech Lead","rubro":"Software","seniority":"Lead/Staff","pais":"Chile","modalidad":"Remoto","median_usd":5100,"p25_usd":4000,"p75_usd":6500,"n":42,"tags":[]},
+
+  {"rol":"Mobile Developer","rubro":"Software","seniority":"Senior","pais":"Colombia","modalidad":"Remoto","median_usd":2700,"p25_usd":2000,"p75_usd":3500,"n":71,"tags":["flutter"]},
+  {"rol":"ML Engineer","rubro":"Data","seniority":"Senior","pais":"Colombia","modalidad":"Remoto","median_usd":3700,"p25_usd":2800,"p75_usd":4800,"n":38,"tags":[]},
+  {"rol":"Tech Lead","rubro":"Software","seniority":"Lead/Staff","pais":"Colombia","modalidad":"Remoto","median_usd":4500,"p25_usd":3500,"p75_usd":5800,"n":54,"tags":[]},
+
+  {"rol":"Desarrollador Frontend","rubro":"Software","seniority":"Senior","pais":"México","modalidad":"Remoto","median_usd":3100,"p25_usd":2400,"p75_usd":4000,"n":268,"tags":["react"]},
+  {"rol":"Mobile Developer","rubro":"Software","seniority":"Senior","pais":"México","modalidad":"Remoto","median_usd":2900,"p25_usd":2200,"p75_usd":3800,"n":134,"tags":["kotlin","swift"]},
+  {"rol":"Tech Lead","rubro":"Software","seniority":"Lead/Staff","pais":"México","modalidad":"Remoto","median_usd":4800,"p25_usd":3700,"p75_usd":6200,"n":97,"tags":[]},
+  {"rol":"Cybersecurity Engineer","rubro":"Seguridad","seniority":"Senior","pais":"México","modalidad":"Remoto","median_usd":4000,"p25_usd":3000,"p75_usd":5200,"n":52,"tags":[]},
+  {"rol":"QA Engineer","rubro":"Software","seniority":"Senior","pais":"México","modalidad":"Remoto","median_usd":2400,"p25_usd":1800,"p75_usd":3100,"n":118,"tags":["selenium"]}
 ]

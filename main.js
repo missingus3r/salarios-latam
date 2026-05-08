@@ -18,7 +18,30 @@ async function load() {
   bindFilters();
   render();
   renderTopRubros();
+  renderSources();
   document.getElementById('last-updated').textContent = META.last_updated || '—';
+  const lu2 = document.getElementById('last-updated-2');
+  if (lu2) lu2.textContent = META.last_updated || '—';
+}
+
+function renderSources() {
+  const grid = document.getElementById('sources-grid');
+  if (!grid || !META.sources) return;
+  grid.innerHTML = META.sources.map(s => {
+    const link = s.url
+      ? `<a href="${s.url}" target="_blank" rel="noopener" class="text-accent hover:underline">${escape(s.name)} ↗</a>`
+      : `<span>${escape(s.name)}</span>`;
+    return `
+      <div class="card rounded-2xl p-5">
+        <div class="flex items-baseline justify-between gap-3 mb-2">
+          <h4 class="font-semibold leading-tight">${link}</h4>
+          ${s.license ? `<span class="pill text-xs px-2 py-0.5 rounded-full whitespace-nowrap">${escape(s.license)}</span>` : ''}
+        </div>
+        ${s.scope ? `<p class="text-sm text-slate-300">${escape(s.scope)}</p>` : ''}
+        ${s.fetched ? `<p class="text-xs text-muted mt-2">Última verificación: ${escape(s.fetched)}</p>` : ''}
+      </div>
+    `;
+  }).join('');
 }
 
 function renderStats() {
@@ -173,11 +196,11 @@ function initHero() {
   scene.add(lines);
 
   function resize() {
-    const w = canvas.clientWidth = window.innerWidth;
-    const h = canvas.clientHeight = canvas.parentElement.clientHeight;
+    const w = window.innerWidth;
+    const h = canvas.parentElement.clientHeight || window.innerHeight * 0.6;
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
+    renderer.setSize(w, h, true);
+    camera.aspect = w / Math.max(h, 1);
     camera.updateProjectionMatrix();
   }
   resize();
