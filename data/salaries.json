@@ -645,10 +645,13 @@
     "median_usd": 1800,
     "p25_usd": 1400,
     "p75_usd": 2300,
-    "n": 48,
+    "n": 352,
     "tags": [
       "react"
-    ]
+    ],
+    "median": 2400,
+    "p25": 1850,
+    "p75": 3100
   },
   {
     "rol": "Desarrollador Backend",
@@ -659,8 +662,11 @@
     "median_usd": 1500,
     "p25_usd": 1100,
     "p75_usd": 2000,
-    "n": 62,
-    "tags": []
+    "n": 435,
+    "tags": [],
+    "median": 1450,
+    "p25": 1000,
+    "p75": 2000
   },
   {
     "rol": "Mobile Developer",
@@ -2474,12 +2480,15 @@
     "median_usd": 4800,
     "p25_usd": 3700,
     "p75_usd": 6000,
-    "n": null,
+    "n": 27,
     "tags": [
       "aws",
       "gcp",
       "terraform"
     ],
-    "evidence": "nextideatech 2026: Cloud Architect LATAM avg $61,200/yr ($5,100/mes); UY ajustado conservador $4,800/mes"
+    "evidence": "nextideatech 2026: Cloud Architect LATAM avg $61,200/yr ($5,100/mes); UY ajustado conservador $4,800/mes",
+    "median": 4600,
+    "p25": 3500,
+    "p75": 5900
   }
 ]
