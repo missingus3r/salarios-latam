@@ -129,7 +129,8 @@ const P=[
   {n:"Mariana Voigt Schwartz",b:2000,c:"BR",t:"mag",pts:[{y:2026,w:1.7}]},
   {n:"Lívia Voigt de Assis",b:2005,c:"BR",t:"mag",pts:[{y:2024,w:1.2},{y:2026,w:1.4}]},
   {n:"Dora Voigt de Assis",b:2007,c:"BR",t:"mag",pts:[{y:2026,w:1.4}]},
-  {n:"Delfín Jorge Ezequiel Carballo",b:1982,c:"AR",t:"mag",pts:[{y:2026,w:1.0}]}];
+  {n:"Delfín Jorge Ezequiel Carballo",b:1982,c:"AR",t:"mag",pts:[{y:2026,w:1.0}]},
+  {n:"Lucia Maggi",b:1932,c:"BR",t:"mag",pts:[{y:2022,w:6.9},{y:2025,w:6.6},{y:2026,w:6.6}]}];
 
 const typeColors={mag:["#8b5cf6","#6d28d9","#a78bfa","#4c1d95","#c4b5fd","#7c3aed","#5b21b6"],tech:["#34d399","#059669","#6ee7b7","#047857","#a7f3d0","#10b981","#065f46"],sports:["#f97316","#c2410c","#fdba74","#9a3412","#fed7aa","#ea580c","#7c2d12"],ent:["#f472b6","#be185d","#f9a8d4","#9d174d","#fbcfe8","#ec4899","#831843"]};
 const typeLabels={mag:"Magnates",tech:"Tech/Fintech",sports:"Deportistas",ent:"Entretenimiento"};
