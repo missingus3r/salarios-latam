@@ -1,10 +1,45 @@
 {
-  "version": "0.6.3",
-  "last_updated": "2026-05-13T09:04:59Z",
+  "version": "0.7.0",
+  "last_updated": "2026-05-22T07:05:00Z",
   "records": 197,
   "rubros": 18,
   "paises": 8,
   "sources": [
+    {
+      "name": "Boletín Oficial Argentina — Res. 9/2025 CNEPSMVM",
+      "url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/335463/20251203",
+      "license": "Oficial / dominio público",
+      "fetched": "2026-05-22",
+      "scope": "Salario mínimo legal Argentina 2026 (senda escalonada nov 2025 → ago 2026)"
+    },
+    {
+      "name": "Presidencia de Colombia — SMMLV 2026",
+      "url": "https://www.presidencia.gov.co/prensa/Paginas/Salario-vital-2-000-000-a-partir-de-enero-de-2026-251230.aspx",
+      "license": "Oficial",
+      "fetched": "2026-05-22",
+      "scope": "SMMLV Colombia 2026 (Decretos 1469/1470)"
+    },
+    {
+      "name": "Dirección del Trabajo de Chile",
+      "url": "https://www.dt.gob.cl/portal/1626/w3-article-60141.html",
+      "license": "Oficial",
+      "fetched": "2026-05-22",
+      "scope": "Ingreso Mínimo Mensual Chile"
+    },
+    {
+      "name": "MITRADEL Panamá — Decreto Ejecutivo No. 13/2025",
+      "url": "https://apps.mitradel.gob.pa/SalarioMinimo/",
+      "license": "Oficial",
+      "fetched": "2026-05-22",
+      "scope": "Salario mínimo Panamá 2026-2027 por sector y región"
+    },
+    {
+      "name": "MTSS Costa Rica — Lista salarios mínimos 2026",
+      "url": "https://mtss.go.cr/temas-laborales/salarios/lista_salarios_minimos_2026.pdf",
+      "license": "Oficial",
+      "fetched": "2026-05-22",
+      "scope": "Salarios mínimos Costa Rica 2026 (Decreto 45303-MTSS)"
+    },
     {
       "name": "Sysarmy / OpenQube — Encuesta sueldos 2026.01",
       "url": "https://sueldos.openqube.io/encuesta-sueldos-2026.01/",

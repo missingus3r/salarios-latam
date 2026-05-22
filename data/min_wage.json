@@ -1,0 +1,121 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-05-22",
+  "methodology": "Salarios mínimos legales mensuales vigentes a mayo 2026 por país. USD aproximado calculado con tipo de cambio oficial al 2026-05-22 (BCRA mayorista para AR, ~$1500/USD). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa.",
+  "fx_rates_used": {
+    "ARS_USD": 1500,
+    "BRL_USD": 5.05,
+    "CLP_USD": 970,
+    "COP_USD": 4000,
+    "CRC_USD": 510,
+    "MXN_USD": 17.5,
+    "PAB_USD": 1.00,
+    "UYU_USD": 40
+  },
+  "wages": [
+    {
+      "pais": "Argentina",
+      "iso": "AR",
+      "currency": "ARS",
+      "amount_local": 363000,
+      "amount_usd_approx": 242,
+      "effective_date": "2026-05-01",
+      "next_adjustment": "2026-06-01",
+      "frequency": "monthly",
+      "notes": "Mensualizado. Res. 9/2025 fijó senda de aumentos hasta agosto 2026 sin ajuste por inflación.",
+      "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/335463/20251203",
+      "source_name": "Boletín Oficial — Resolución 9/2025 CNEPSMVM"
+    },
+    {
+      "pais": "Brasil",
+      "iso": "BR",
+      "currency": "BRL",
+      "amount_local": 1621,
+      "amount_usd_approx": 321,
+      "effective_date": "2026-01-01",
+      "next_adjustment": "2027-01-01",
+      "frequency": "monthly",
+      "notes": "Salário mínimo federal nominal. Estados pueden fijar pisos regionais superiores (SP, RJ, etc).",
+      "source_url": "https://www.gov.br/trabalho-e-emprego/",
+      "source_name": "Ministério do Trabalho e Emprego"
+    },
+    {
+      "pais": "Chile",
+      "iso": "CL",
+      "currency": "CLP",
+      "amount_local": 539000,
+      "amount_usd_approx": 556,
+      "effective_date": "2026-01-01",
+      "next_adjustment": "2026-05-01",
+      "frequency": "monthly",
+      "notes": "Ingreso Mínimo Mensual (IMM) para trabajadores 18-65 años. Reajuste mayo 2026 (~$553.553) en tramitación legislativa.",
+      "source_url": "https://www.dt.gob.cl/portal/1626/w3-article-60141.html",
+      "source_name": "Dirección del Trabajo de Chile"
+    },
+    {
+      "pais": "Colombia",
+      "iso": "CO",
+      "currency": "COP",
+      "amount_local": 1750905,
+      "amount_usd_approx": 438,
+      "effective_date": "2026-01-01",
+      "next_adjustment": "2027-01-01",
+      "frequency": "monthly",
+      "notes": "SMMLV. Decretos 1469 y 1470 de 2025. Aumento nominal 23% vs 2025. Auxilio transporte $249.095 adicional.",
+      "source_url": "https://www.presidencia.gov.co/prensa/Paginas/Salario-vital-2-000-000-a-partir-de-enero-de-2026-251230.aspx",
+      "source_name": "Presidencia de Colombia"
+    },
+    {
+      "pais": "Costa Rica",
+      "iso": "CR",
+      "currency": "CRC",
+      "amount_local": 370000,
+      "amount_usd_approx": 725,
+      "effective_date": "2026-01-01",
+      "next_adjustment": "2027-01-01",
+      "frequency": "monthly",
+      "notes": "Aproximación categoría 'Trabajador no calificado genérico'. CR tiene tabla con +60 ocupaciones, monto exacto varía. Ajuste +1,63% Decreto 45303-MTSS.",
+      "source_url": "https://mtss.go.cr/temas-laborales/salarios/lista_salarios_minimos_2026.pdf",
+      "source_name": "MTSS Costa Rica — Lista 2026"
+    },
+    {
+      "pais": "México",
+      "iso": "MX",
+      "currency": "MXN",
+      "amount_local": 9582,
+      "amount_usd_approx": 548,
+      "effective_date": "2026-01-01",
+      "next_adjustment": "2027-01-01",
+      "frequency": "monthly",
+      "notes": "Salario mínimo general nacional. $315.04 MXN/día × 30.4. Zona Libre de la Frontera Norte (ZLFN) tiene piso superior (~$475/día).",
+      "source_url": "https://www.gob.mx/conasami",
+      "source_name": "CONASAMI México"
+    },
+    {
+      "pais": "Panamá",
+      "iso": "PA",
+      "currency": "PAB",
+      "amount_local": 500,
+      "amount_usd_approx": 500,
+      "effective_date": "2026-01-16",
+      "next_adjustment": "2028-01-01",
+      "frequency": "monthly",
+      "notes": "Aproximación. PA tiene tabla por sector/región/tamaño empresa (Región 1 vs 2). Valor representativo sector servicios Región 1. Vigencia 2026-2027. PAB paridad fija con USD.",
+      "source_url": "https://apps.mitradel.gob.pa/SalarioMinimo/",
+      "source_name": "MITRADEL Panamá — Decreto Ejecutivo No. 13/2025"
+    },
+    {
+      "pais": "Uruguay",
+      "iso": "UY",
+      "currency": "UYU",
+      "amount_local": 24572,
+      "amount_usd_approx": 614,
+      "effective_date": "2026-01-01",
+      "next_adjustment": "2027-01-01",
+      "frequency": "monthly",
+      "notes": "Salario Mínimo Nacional (SMN). Decreto 397/025.",
+      "source_url": "https://www.gub.uy/ministerio-trabajo-seguridad-social/",
+      "source_name": "MTSS Uruguay"
+    }
+  ]
+}

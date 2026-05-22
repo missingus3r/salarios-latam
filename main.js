@@ -3,6 +3,7 @@ import * as THREE from 'three';
 // ─── State ─────────────────────────────────────────────────────────────
 let DATA = [];
 let META = {};
+let MIN_WAGE = null;
 let HISTORY = null; // lazy
 let filters = { search: '', pais: '', rubro: '', seniority: '', modalidad: '' };
 let pagination = { page: 1, pageSize: 20 };
@@ -10,18 +11,21 @@ let sortState = { key: null, dir: 'asc' };
 
 // ─── Bootstrap ─────────────────────────────────────────────────────────
 async function load() {
-  const [data, meta] = await Promise.all([
+  const [data, meta, minWage] = await Promise.all([
     fetch('./data/salaries.json').then(r => r.json()),
     fetch('./data/meta.json').then(r => r.json()),
+    fetch('./data/min_wage.json').then(r => r.json()).catch(() => null),
   ]);
   DATA = data;
   META = meta;
+  MIN_WAGE = minWage;
   renderStats();
   populateSelects();
   bindFilters();
   bindSort();
   render();
   renderTopRubros();
+  renderMinWage();
   renderSources();
   bindModals();
   bindTabs();
@@ -398,6 +402,46 @@ function renderTopRubros() {
     </div>
   `).join('');
   document.getElementById('top-rubros').innerHTML = html;
+}
+
+const COUNTRY_FLAGS = {
+  AR: '🇦🇷', BR: '🇧🇷', CL: '🇨🇱', CO: '🇨🇴',
+  CR: '🇨🇷', MX: '🇲🇽', PA: '🇵🇦', UY: '🇺🇾'
+};
+
+function renderMinWage() {
+  const grid = document.getElementById('min-wage-grid');
+  if (!grid || !MIN_WAGE || !Array.isArray(MIN_WAGE.wages)) return;
+  const stamp = document.getElementById('min-wage-updated');
+  if (stamp) stamp.textContent = MIN_WAGE.last_updated || '—';
+  const html = MIN_WAGE.wages
+    .slice()
+    .sort((a, b) => b.amount_usd_approx - a.amount_usd_approx)
+    .map(w => {
+      const flag = COUNTRY_FLAGS[w.iso] || '🌎';
+      const localFmt = w.amount_local.toLocaleString('es-AR');
+      const usdFmt = w.amount_usd_approx.toLocaleString('es-AR');
+      const sourceLink = w.source_url
+        ? `<a href="${escape(w.source_url)}" target="_blank" rel="noopener" class="text-accent hover:underline text-xs">${escape(w.source_name || 'Fuente')} ↗</a>`
+        : '';
+      return `
+        <div class="card rounded-2xl p-5 flex flex-col gap-2">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl">${flag}</span>
+            <h3 class="text-base font-bold">${escape(w.pais)}</h3>
+            <span class="pill text-[10px] px-1.5 py-0.5 rounded-full ml-auto">${escape(w.currency)}</span>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-accent">${localFmt} <span class="text-xs text-muted font-normal">${escape(w.currency)}</span></div>
+            <div class="text-sm text-accent2">≈ US$ ${usdFmt}/mes</div>
+          </div>
+          <div class="text-xs text-muted">Vigente: ${escape(w.effective_date || '—')}</div>
+          ${w.notes ? `<div class="text-xs text-slate-300 leading-snug">${escape(w.notes)}</div>` : ''}
+          ${sourceLink}
+        </div>
+      `;
+    }).join('');
+  grid.innerHTML = html;
 }
 
 // ─── Helpers ───────────────────────────────────────────────────────────

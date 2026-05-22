@@ -319,6 +319,16 @@ uy = [r for r in data if r['pais'] == 'Uruguay']</code></pre>
   </div>
 </div>
 
+<!-- Salario mínimo legal por país -->
+<section id="min-wage-section" class="max-w-6xl mx-auto px-6 py-10">
+  <div class="flex items-baseline justify-between mb-4 flex-wrap gap-2">
+    <h2 class="text-2xl font-bold">Salario mínimo legal por país</h2>
+    <span class="text-xs text-muted">vigente a <span id="min-wage-updated">—</span> · USD aproximado al tipo de cambio oficial</span>
+  </div>
+  <p class="text-sm text-muted mb-5 max-w-3xl">Piso legal mensual por país LATAM. Algunos países (PA, CR) tienen tabla por sector — usamos el monto representativo más común y dejamos la nota explicativa.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="min-wage-grid"></div>
+</section>
+
 <!-- Top 10 por rubro -->
 <section class="max-w-6xl mx-auto px-6 py-10">
   <div class="flex items-baseline justify-between mb-4 flex-wrap gap-2">
