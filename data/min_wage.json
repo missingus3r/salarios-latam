@@ -1,6 +1,6 @@
 {
-  "version": "1.0.0",
-  "last_updated": "2026-05-22",
+  "version": "1.0.1",
+  "last_updated": "2026-05-31",
   "methodology": "Salarios mínimos legales mensuales vigentes a mayo 2026 por país. USD aproximado calculado con tipo de cambio oficial al 2026-05-22 (BCRA mayorista para AR, ~$1500/USD). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa.",
   "fx_rates_used": {
     "ARS_USD": 1500,
@@ -17,12 +17,12 @@
       "pais": "Argentina",
       "iso": "AR",
       "currency": "ARS",
-      "amount_local": 363000,
-      "amount_usd_approx": 242,
-      "effective_date": "2026-05-01",
-      "next_adjustment": "2026-06-01",
+      "amount_local": 367800,
+      "amount_usd_approx": 245,
+      "effective_date": "2026-06-01",
+      "next_adjustment": "2026-07-01",
       "frequency": "monthly",
-      "notes": "Mensualizado. Res. 9/2025 fijó senda de aumentos hasta agosto 2026 sin ajuste por inflación.",
+      "notes": "Mensualizado. Res. 9/2025 fijó senda de aumentos hasta agosto 2026 sin ajuste por inflación. Escala: jun $367.800, jul $372.400, ago $376.600. Hora $1.839 en junio.",
       "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/335463/20251203",
       "source_name": "Boletín Oficial — Resolución 9/2025 CNEPSMVM"
     },
