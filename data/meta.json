@@ -1,6 +1,6 @@
 {
   "version": "0.7.1",
-  "last_updated": "2026-05-31T07:00:00Z",
+  "last_updated": "2026-06-01T12:00:00Z",
   "records": 197,
   "rubros": 18,
   "paises": 8,
@@ -121,6 +121,13 @@
       "name": "Comunidad (formulario anónimo)",
       "license": "CC0",
       "scope": "Aportes voluntarios via /aportar"
+    },
+    {
+      "name": "Ministerio de Trabajo Bolivia — DS 5516 / RM 088/26",
+      "url": "https://mintrabajo.gob.bo/wp-content/uploads/2026/01/RM-N%C2%B0-088-26.pdf",
+      "license": "Oficial",
+      "fetched": "2026-06-01",
+      "scope": "Salario mínimo nacional Bolivia 2026 (Bs 3.300, +20%)"
     }
   ],
   "note": "Datos consolidados de Sysarmy 2026.01 + agregadores LATAM 2026 (HR Oasis, Mismo, Interfell, NextIdea, Deel, Bloomberg Línea, El Observador, Alto Nivel). Coberturas país: AR/UY/CL/CO/MX/BR/CR/PA. v0.3 agrega 16 roles fuera del campo tech (salud, educación, retail, construcción, transporte, gastronomía, industria, servicios, seguridad pública) en los 8 países como comparativa común. Cron diario actualiza con reportes nuevos. Las medianas en USD son pago bruto mensual o equivalente; para roles US-pay (CR/PA Sr) los rangos reflejan el mercado nearshore premium; los roles non-tech reflejan mercado local presencial con paridad PPP.",

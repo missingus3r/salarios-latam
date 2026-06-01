@@ -1,5 +1,5 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "last_updated": "2026-06-01",
   "methodology": "Salarios mínimos legales mensuales vigentes a mayo 2026 por país. USD aproximado calculado con tipo de cambio oficial al 2026-05-22 (BCRA mayorista para AR, ~$1500/USD). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa.",
   "fx_rates_used": {
@@ -10,7 +10,8 @@
     "CRC_USD": 510,
     "MXN_USD": 17.5,
     "PAB_USD": 1.00,
-    "UYU_USD": 40
+    "UYU_USD": 40,
+    "BOB_USD": 6.96
   },
   "wages": [
     {
@@ -25,6 +26,19 @@
       "notes": "Mensualizado. Res. 9/2025 fijó senda de aumentos hasta agosto 2026 sin ajuste por inflación. Escala: jun $367.800, jul $372.400, ago $376.600. Hora $1.839 en junio.",
       "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/335463/20251203",
       "source_name": "Boletín Oficial — Resolución 9/2025 CNEPSMVM"
+    },
+    {
+      "pais": "Bolivia",
+      "iso": "BO",
+      "currency": "BOB",
+      "amount_local": 3300,
+      "amount_usd_approx": 474,
+      "effective_date": "2026-01-01",
+      "next_adjustment": "2027-01-01",
+      "frequency": "monthly",
+      "notes": "Salario Mínimo Nacional. Decreto Supremo 5516 (publicado 13-ene-2026 en Gaceta, retroactivo al 1-ene-2026). Incremento +20% vs Bs 2.750 de 2025, el mayor en una década. USD aprox al tipo de cambio oficial (~6,96 BOB/USD); existe mercado paralelo con cotización mayor.",
+      "source_url": "https://mintrabajo.gob.bo/wp-content/uploads/2026/01/RM-N%C2%B0-088-26.pdf",
+      "source_name": "Ministerio de Trabajo Bolivia — DS 5516 / RM 088/26"
     },
     {
       "pais": "Brasil",

@@ -405,7 +405,7 @@ function renderTopRubros() {
 }
 
 const COUNTRY_FLAGS = {
-  AR: '🇦🇷', BR: '🇧🇷', CL: '🇨🇱', CO: '🇨🇴',
+  AR: '🇦🇷', BO: '🇧🇴', BR: '🇧🇷', CL: '🇨🇱', CO: '🇨🇴',
   CR: '🇨🇷', MX: '🇲🇽', PA: '🇵🇦', UY: '🇺🇾'
 };
 
