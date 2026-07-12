@@ -261,8 +261,14 @@ function build(){
 
 window.toggle=function(i){const m=chart.getDatasetMeta(i);m.hidden=!m.hidden;document.getElementById("li"+i).style.opacity=m.hidden?"0.25":"1";chart.update();};
 
-build();
-document.getElementById("filt").addEventListener("change",build);
-document.getElementById("logY").addEventListener("change",build);
-document.getElementById("showDots").addEventListener("change",build);  }
+// El tab de Fortunas se muestra recién al activarlo; si construimos el Chart antes de que el
+// navegador haya calculado el layout del contenedor (#fort-chart, height 680px), Chart.js mide
+// un canvas de 0px y su handler interno de resize tira "Cannot read properties of undefined
+// (reading 'type')". Diferimos la 1ra construcción dos frames para que el layout esté listo,
+// y envolvemos en try/catch para no propagar un error no capturado.
+function safeBuild(){ try{ build(); }catch(e){ console.error("fort-chart: fallo al construir el gráfico:",e); const w=document.getElementById("fort-chart"); if(w&&!w.querySelector(".fc-err")){ const d=document.createElement("div"); d.className="fc-err"; d.style.cssText="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#a3a6b4;font-size:14px;text-align:center;padding:20px;"; d.textContent="No se pudo dibujar el gráfico. Probá recargar la página (Ctrl+Shift+R)."; w.appendChild(d); } } }
+requestAnimationFrame(()=>requestAnimationFrame(safeBuild));
+document.getElementById("filt").addEventListener("change",safeBuild);
+document.getElementById("logY").addEventListener("change",safeBuild);
+document.getElementById("showDots").addEventListener("change",safeBuild);  }
 })();
