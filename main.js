@@ -457,7 +457,17 @@ function escape(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&a
 function initHero(canvasId = 'hero-canvas') {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  // El hero es puramente decorativo (opacity 0.4, pointer-events:none). Si WebGL no está
+  // disponible (deshabilitado / GPU en blocklist / aceleración por hardware apagada), el
+  // renderer tira un error: lo capturamos y salimos para NO romper el resto del JS (tabs,
+  // tabla de salarios y el chart de Fortunas).
+  let renderer;
+  try {
+    renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  } catch (e) {
+    console.warn('Hero WebGL no disponible, se omite el fondo decorativo:', e && e.message);
+    return;
+  }
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, 2, 0.1, 100);
   camera.position.set(0, 0, 18);
