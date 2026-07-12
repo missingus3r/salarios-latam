@@ -227,7 +227,7 @@ function build(){
 
   const bw=data.length>60?1.1:data.length>40?1.4:data.length>20?1.8:2.3;
   const pr=dots?(data.length>60?1.6:data.length>40?2:data.length>20?2.5:3.2):0;
-  const datasets=data.map(p=>{const col=getColor(p);return{label:p.n,data:p.pts.map(d=>({x:d.y,y:d.w})),borderColor:col,backgroundColor:col+"22",borderWidth:bw,hoverBorderWidth:bw+2.2,pointRadius:pr,pointHoverRadius:pr+3,pointHoverBorderWidth:2,pointHoverBorderColor:"#fff",fill:false,tension:0.25,cubicInterpolationMode:"monotone",pointBackgroundColor:col,borderDash:p.t==="sports"?[4,3]:p.t==="ent"?[7,4]:[]};});
+  const datasets=data.map(p=>{const col=getColor(p);return{type:"line",label:p.n,data:p.pts.map(d=>({x:d.y,y:d.w})),borderColor:col,backgroundColor:col+"22",borderWidth:bw,hoverBorderWidth:bw+2.2,pointRadius:pr,pointHoverRadius:pr+3,pointHoverBorderWidth:2,pointHoverBorderColor:"#fff",fill:false,tension:0.25,cubicInterpolationMode:"monotone",pointBackgroundColor:col,borderDash:p.t==="sports"?[4,3]:p.t==="ent"?[7,4]:[]};});
 
   const leg=document.getElementById("leg");leg.innerHTML="";
   Object.entries(typeLabels).forEach(([t,l])=>{const col=typeColors[t][0];const d=t==="sports"?"dashed":t==="ent"?"dotted":"solid";leg.innerHTML+=`<span style="font-weight:500;border-bottom:2px ${d} ${col};padding-bottom:1px;margin-right:8px;font-size:11px;">${l}</span>`;});
