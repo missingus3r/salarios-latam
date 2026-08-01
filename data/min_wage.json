@@ -1,6 +1,6 @@
 {
-  "version": "1.0.4",
-  "last_updated": "2026-07-12",
+  "version": "1.0.5",
+  "last_updated": "2026-08-01",
   "methodology": "Salarios mínimos legales mensuales vigentes a julio 2026 por país. USD aproximado calculado con tipo de cambio oficial (BCRA mayorista para AR, ~$1500/USD). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Ajustes jul 2026: AR $372.400, UY $25.383, CL $553.553 (Ley 21.830).",
   "fx_rates_used": {
     "ARS_USD": 1500,
@@ -9,7 +9,7 @@
     "COP_USD": 4000,
     "CRC_USD": 510,
     "MXN_USD": 17.5,
-    "PAB_USD": 1.00,
+    "PAB_USD": 1.0,
     "UYU_USD": 40,
     "BOB_USD": 6.96
   },
@@ -18,12 +18,12 @@
       "pais": "Argentina",
       "iso": "AR",
       "currency": "ARS",
-      "amount_local": 372400,
-      "amount_usd_approx": 248,
-      "effective_date": "2026-07-01",
-      "next_adjustment": "2026-08-01",
+      "amount_local": 376600,
+      "amount_usd_approx": 251,
+      "effective_date": "2026-08-01",
+      "next_adjustment": null,
       "frequency": "monthly",
-      "notes": "Mensualizado. Res. 9/2025 fijó senda de aumentos hasta agosto 2026 sin ajuste por inflación. Escala: jun $367.800, jul $372.400 (vigente), ago $376.600. Hora $1.862 en julio.",
+      "notes": "Mensualizado. Res. 9/2025 fijo senda de aumentos hasta agosto 2026 sin ajuste por inflacion. Escala: jun $367.800, jul $372.400, ago $376.600 (VIGENTE, ultimo escalon de la senda). Hora $1.883 en agosto. Sin nuevo escalon pactado despues de agosto/2026: requiere nueva resolucion del CNEPSMVM.",
       "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/335463/20251203",
       "source_name": "Boletín Oficial — Resolución 9/2025 CNEPSMVM"
     },
