@@ -1,7 +1,7 @@
 {
-  "version": "1.0.5",
+  "version": "1.0.6",
   "last_updated": "2026-08-01",
-  "methodology": "Salarios mínimos legales mensuales vigentes a julio 2026 por país. USD aproximado calculado con tipo de cambio oficial (BCRA mayorista para AR, ~$1500/USD). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Ajustes jul 2026: AR $372.400, UY $25.383, CL $553.553 (Ley 21.830).",
+  "methodology": "Salarios mínimos legales mensuales vigentes a agosto 2026 por país. USD aproximado calculado con tipo de cambio oficial (BCRA mayorista para AR, ~$1500/USD). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste ago 2026: AR $376.600 (escalón final de la Res. 9/2025, sin próximo ajuste programado). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830).",
   "fx_rates_used": {
     "ARS_USD": 1500,
     "BRL_USD": 5.05,
