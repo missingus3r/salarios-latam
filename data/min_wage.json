@@ -1,7 +1,7 @@
 {
-  "version": "1.0.6",
-  "last_updated": "2026-08-01",
-  "methodology": "Salarios mínimos legales mensuales vigentes a agosto 2026 por país. USD aproximado calculado con tipo de cambio oficial (BCRA mayorista para AR, ~$1500/USD). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste ago 2026: AR $376.600 (escalón final de la Res. 9/2025, sin próximo ajuste programado). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830).",
+  "version": "1.0.7",
+  "last_updated": "2026-09-02",
+  "methodology": "Salarios mínimos legales mensuales vigentes a septiembre 2026 por país. USD aproximado calculado con tipo de cambio oficial (BCRA mayorista para AR, ~$1500/USD). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste sep 2026: AR $383.800 (primer escalón de la Res. 4/2026, laudo del Ejecutivo; senda mensual hasta abr-2027 $437.000). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830).",
   "fx_rates_used": {
     "ARS_USD": 1500,
     "BRL_USD": 5.05,
@@ -18,14 +18,23 @@
       "pais": "Argentina",
       "iso": "AR",
       "currency": "ARS",
-      "amount_local": 376600,
-      "amount_usd_approx": 251,
-      "effective_date": "2026-08-01",
-      "next_adjustment": null,
+      "amount_local": 383800,
+      "amount_usd_approx": 256,
+      "effective_date": "2026-09-01",
+      "next_adjustment": "2026-10-01",
       "frequency": "monthly",
-      "notes": "Mensualizado. Res. 9/2025 fijo senda de aumentos hasta agosto 2026 sin ajuste por inflacion. Escala: jun $367.800, jul $372.400, ago $376.600 (VIGENTE, ultimo escalon de la senda). Hora $1.883 en agosto. Sin nuevo escalon pactado despues de agosto/2026: requiere nueva resolucion del CNEPSMVM.",
-      "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/335463/20251203",
-      "source_name": "Boletín Oficial — Resolución 9/2025 CNEPSMVM"
+      "notes": "Mensualizado. Res. 4/2026 CNEPSMVM (laudo del Ejecutivo tras fracaso del Consejo del 28/08, publicada en BO el 02-sep-2026) fija senda sep-2026 a abr-2027: sep $383.800 (VIGENTE, hora $1.919), oct $391.200, nov $398.800, dic $406.400, ene $414.200, feb $422.000, mar $429.600, abr $437.000 (hora $2.185). Escalones futuros cargados en schedule.",
+      "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
+      "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM",
+      "schedule": {
+        "2026-10-01": {"amount_local": 391200, "hourly": 1956, "next": "2026-11-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
+        "2026-11-01": {"amount_local": 398800, "hourly": 1994, "next": "2026-12-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
+        "2026-12-01": {"amount_local": 406400, "hourly": 2032, "next": "2027-01-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
+        "2027-01-01": {"amount_local": 414200, "hourly": 2071, "next": "2027-02-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
+        "2027-02-01": {"amount_local": 422000, "hourly": 2110, "next": "2027-03-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
+        "2027-03-01": {"amount_local": 429600, "hourly": 2148, "next": "2027-04-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
+        "2027-04-01": {"amount_local": 437000, "hourly": 2185, "next": null, "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"}
+      }
     },
     {
       "pais": "Bolivia",
