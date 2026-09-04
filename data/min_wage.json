@@ -1,6 +1,6 @@
 {
-  "version": "1.0.7",
-  "last_updated": "2026-09-02",
+  "version": "1.0.8",
+  "last_updated": "2026-09-04",
   "methodology": "Salarios mínimos legales mensuales vigentes a septiembre 2026 por país. USD aproximado calculado con tipo de cambio oficial (BCRA mayorista para AR, ~$1500/USD). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste sep 2026: AR $383.800 (primer escalón de la Res. 4/2026, laudo del Ejecutivo; senda mensual hasta abr-2027 $437.000). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830).",
   "fx_rates_used": {
     "ARS_USD": 1500,
@@ -71,7 +71,7 @@
       "effective_date": "2026-05-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
-      "notes": "Ingreso Mínimo Mensual (IMM) para trabajadores 18-65 años. Ley 21.830 (publicada 22-jun-2026, retroactiva al 1-may-2026) subió el IMM de $539.000 a $553.553 (+2,7%). Menores de 18/mayores de 65: $412.938.",
+      "notes": "Ingreso Mínimo Mensual (IMM) para trabajadores 18-65 años. Ley 21.830 (publicada 22-jun-2026, retroactiva al 1-may-2026) subió el IMM de $539.000 a $553.553 (+2,7%). Menores de 18/mayores de 65: $412.938. Ene-2027: reajuste automático por IPC acumulado may–dic 2026 (Ley 21.830; decreto supremo de Hacienda a más tardar el 15-ene-2027, cf. DT ORD. 307/28) — sin monto fijo, no hay escalón cargable en schedule.",
       "source_url": "https://www.dt.gob.cl/portal/1626/w3-article-60141.html",
       "source_name": "Dirección del Trabajo de Chile"
     },
@@ -97,8 +97,8 @@
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
-      "notes": "Aproximación categoría 'Trabajador no calificado genérico'. CR tiene tabla con +60 ocupaciones, monto exacto varía. Ajuste +1,63% Decreto 45303-MTSS.",
-      "source_url": "https://mtss.go.cr/temas-laborales/salarios/lista_salarios_minimos_2026.pdf",
+      "notes": "Aproximación categoría 'Trabajador no calificado genérico'. CR tiene tabla con +60 ocupaciones, monto exacto varía. Ajuste +1,63% Decreto 45303-MTSS. Fijación anual: la lista 2026 rige desde el 01-ene-2026 todo el año (sin decreto de II semestre; verificado 04-sep-2026).",
+      "source_url": "https://www.mtss.go.cr/temas-laborales/salarios/lista_salarios_minimos_2026.pdf",
       "source_name": "MTSS Costa Rica — Lista 2026"
     },
     {
