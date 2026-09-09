@@ -1,17 +1,82 @@
 {
-  "version": "1.0.8",
-  "last_updated": "2026-09-04",
-  "methodology": "Salarios mínimos legales mensuales vigentes a septiembre 2026 por país. USD aproximado calculado con tipo de cambio oficial (BCRA mayorista para AR, ~$1500/USD). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste sep 2026: AR $383.800 (primer escalón de la Res. 4/2026, laudo del Ejecutivo; senda mensual hasta abr-2027 $437.000). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830).",
+  "version": "1.1.0",
+  "last_updated": "2026-09-09",
+  "methodology": "Salarios mínimos legales mensuales vigentes a septiembre 2026 por país. USD aproximado calculado con el tipo de cambio oficial de VENTA (o valor de referencia único) publicado por el banco central / autoridad estadística de cada país al 8-9 de septiembre de 2026: BCRA $1.512 (AR), BCB Bs 12,74 (BO), PTAX R$5,0856 (BR), dólar observado SII/BCCh $933,82 (CL), TRM $3.116,47 (CO), BCCR ₡452,56 (CR), FIX Banxico $16,9202 (MX), paridad 1:1 (PA), BCU $40,216 (UY). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste sep 2026: AR $383.800 (primer escalón de la Res. 4/2026, laudo del Ejecutivo; senda mensual hasta abr-2027 $437.000). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830). Ojo BO: el peg de Bs 6,96/USD se rompió el 1-jul-2026 y el boliviano se depreció ~83% hasta septiembre, así que el mínimo en USD cae de ~474 a ~259 sin que el monto en bolivianos haya cambiado.",
   "fx_rates_used": {
-    "ARS_USD": 1500,
-    "BRL_USD": 5.05,
-    "CLP_USD": 970,
-    "COP_USD": 4000,
-    "CRC_USD": 510,
-    "MXN_USD": 17.5,
+    "ARS_USD": 1512.0,
+    "BOB_USD": 12.74,
+    "BRL_USD": 5.0856,
+    "CLP_USD": 933.82,
+    "COP_USD": 3116.47,
+    "CRC_USD": 452.56,
+    "MXN_USD": 16.9202,
     "PAB_USD": 1.0,
-    "UYU_USD": 40,
-    "BOB_USD": 6.96
+    "UYU_USD": 40.216
+  },
+  "fx_sources": {
+    "ARS_USD": {
+      "rate": 1512.0,
+      "as_of": "2026-09-08",
+      "side": "cotización oficial USD",
+      "source_name": "BCRA — Estadísticas Cambiarias v1.0",
+      "source_url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones?fecha=2026-09-08"
+    },
+    "BOB_USD": {
+      "rate": 12.74,
+      "as_of": "2026-09-09",
+      "side": "venta (compra/TCO 12,64)",
+      "source_name": "BCB — Tabla de Cotizaciones N° 167-26",
+      "source_url": "https://www.bcb.gob.bo/librerias/indicadores/otras/ultimo.php"
+    },
+    "BRL_USD": {
+      "rate": 5.0856,
+      "as_of": "2026-09-08",
+      "side": "PTAX venta",
+      "source_name": "Banco Central do Brasil — PTAX (Olinda)",
+      "source_url": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='09-08-2026'&$format=json"
+    },
+    "CLP_USD": {
+      "rate": 933.82,
+      "as_of": "2026-09-08",
+      "side": "dólar observado",
+      "source_name": "SII / Banco Central de Chile — Dólar Observado 2026",
+      "source_url": "https://www.sii.cl/valores_y_fechas/dolar/dolar2026.htm"
+    },
+    "COP_USD": {
+      "rate": 3116.47,
+      "as_of": "2026-09-09",
+      "side": "TRM vigente",
+      "source_name": "Superintendencia Financiera — TRM (datos.gov.co)",
+      "source_url": "https://www.datos.gov.co/resource/32sa-8pi3.json?$limit=1&$order=vigenciadesde%20DESC"
+    },
+    "CRC_USD": {
+      "rate": 452.56,
+      "as_of": "2026-09-09",
+      "side": "referencia venta (compra 447,83)",
+      "source_name": "BCCR — Tipo de cambio de referencia (indicador 318)",
+      "source_url": "https://www.bccr.fi.cr/content/bccr/cr/es/home/_jcr_content/root/container/container/economicindicators/cardindicador.indicator.318.json"
+    },
+    "MXN_USD": {
+      "rate": 16.9202,
+      "as_of": "2026-09-08",
+      "side": "FIX",
+      "source_name": "Banco de México — Tipo de cambio FIX (DOF)",
+      "source_url": "https://www.banxico.org.mx/tipcamb/tipCamMIAction.do"
+    },
+    "PAB_USD": {
+      "rate": 1.0,
+      "as_of": "2026-09-09",
+      "side": "paridad legal 1:1",
+      "source_name": "Balboa en paridad fija con el USD (Ley 84 de 1904)",
+      "source_url": "https://apps.mitradel.gob.pa/SalarioMinimo/"
+    },
+    "UYU_USD": {
+      "rate": 40.216,
+      "as_of": "2026-09-08",
+      "side": "TCV billete",
+      "source_name": "BCU — Web Service de Cotizaciones (moneda 2225)",
+      "source_url": "https://cotizaciones.bcu.gub.uy/wscotizaciones/servlet/awsbcucotizaciones"
+    }
   },
   "wages": [
     {
@@ -19,7 +84,7 @@
       "iso": "AR",
       "currency": "ARS",
       "amount_local": 383800,
-      "amount_usd_approx": 256,
+      "amount_usd_approx": 254,
       "effective_date": "2026-09-01",
       "next_adjustment": "2026-10-01",
       "frequency": "monthly",
@@ -27,13 +92,55 @@
       "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
       "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM",
       "schedule": {
-        "2026-10-01": {"amount_local": 391200, "hourly": 1956, "next": "2026-11-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
-        "2026-11-01": {"amount_local": 398800, "hourly": 1994, "next": "2026-12-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
-        "2026-12-01": {"amount_local": 406400, "hourly": 2032, "next": "2027-01-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
-        "2027-01-01": {"amount_local": 414200, "hourly": 2071, "next": "2027-02-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
-        "2027-02-01": {"amount_local": 422000, "hourly": 2110, "next": "2027-03-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
-        "2027-03-01": {"amount_local": 429600, "hourly": 2148, "next": "2027-04-01", "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"},
-        "2027-04-01": {"amount_local": 437000, "hourly": 2185, "next": null, "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902", "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"}
+        "2026-10-01": {
+          "amount_local": 391200,
+          "hourly": 1956,
+          "next": "2026-11-01",
+          "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
+          "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"
+        },
+        "2026-11-01": {
+          "amount_local": 398800,
+          "hourly": 1994,
+          "next": "2026-12-01",
+          "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
+          "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"
+        },
+        "2026-12-01": {
+          "amount_local": 406400,
+          "hourly": 2032,
+          "next": "2027-01-01",
+          "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
+          "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"
+        },
+        "2027-01-01": {
+          "amount_local": 414200,
+          "hourly": 2071,
+          "next": "2027-02-01",
+          "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
+          "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"
+        },
+        "2027-02-01": {
+          "amount_local": 422000,
+          "hourly": 2110,
+          "next": "2027-03-01",
+          "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
+          "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"
+        },
+        "2027-03-01": {
+          "amount_local": 429600,
+          "hourly": 2148,
+          "next": "2027-04-01",
+          "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
+          "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"
+        },
+        "2027-04-01": {
+          "amount_local": 437000,
+          "hourly": 2185,
+          "next": null,
+          "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
+          "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"
+        }
       }
     },
     {
@@ -41,11 +148,11 @@
       "iso": "BO",
       "currency": "BOB",
       "amount_local": 3300,
-      "amount_usd_approx": 474,
+      "amount_usd_approx": 259,
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
-      "notes": "Salario Mínimo Nacional. Decreto Supremo 5516 (publicado 13-ene-2026 en Gaceta, retroactivo al 1-ene-2026). Incremento +20% vs Bs 2.750 de 2025, el mayor en una década. USD aprox al tipo de cambio oficial (~6,96 BOB/USD); existe mercado paralelo con cotización mayor.",
+      "notes": "Salario Mínimo Nacional. Decreto Supremo 5516 (publicado 13-ene-2026 en Gaceta, retroactivo al 1-ene-2026). Incremento +20% vs Bs 2.750 de 2025, el mayor en una década; el monto en bolivianos sigue vigente y sin nuevo decreto (MTEPS, verificado 09-sep-2026). CAMBIO DE RÉGIMEN CAMBIARIO: el tipo de cambio oficial fijo de Bs 6,96/6,86 por USD, sostenido desde 2011, se abandonó el 1-jul-2026 (BCB abre en 9,86/9,76) y al 9-sep-2026 la cotización oficial es 12,74 venta / 12,64 compra (TCO). Desde dic-2025 el BCB además publica a diario el Valor Referencial del Dólar (VRD), promedio ponderado de operaciones reales. El USD aproximado de esta ficha usa la venta oficial del BCB (Tabla de Cotizaciones N° 167-26, bcb.gob.bo/librerias/indicadores/otras/ultimo.php): Bs 3.300 ÷ 12,74 ≈ USD 259 (contra USD 474 al peg viejo).",
       "source_url": "https://mintrabajo.gob.bo/wp-content/uploads/2026/01/RM-N%C2%B0-088-26.pdf",
       "source_name": "Ministerio de Trabajo Bolivia — DS 5516 / RM 088/26"
     },
@@ -54,20 +161,20 @@
       "iso": "BR",
       "currency": "BRL",
       "amount_local": 1621,
-      "amount_usd_approx": 321,
+      "amount_usd_approx": 319,
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
-      "notes": "Salário mínimo federal nominal. Estados pueden fijar pisos regionais superiores (SP, RJ, etc).",
-      "source_url": "https://www.gov.br/trabalho-e-emprego/",
-      "source_name": "Ministério do Trabalho e Emprego"
+      "notes": "Salário mínimo federal nominal, R$ 1.621 vigente todo 2026 (serie oficial MTE/IPEA MTE12_SALMIN12, verificada 09-sep-2026). Estados pueden fijar pisos regionais superiores (SP, RJ, etc).",
+      "source_url": "http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='MTE12_SALMIN12')",
+      "source_name": "Ipeadata — serie MTE12_SALMIN12 (Ministério do Trabalho e Emprego)"
     },
     {
       "pais": "Chile",
       "iso": "CL",
       "currency": "CLP",
       "amount_local": 553553,
-      "amount_usd_approx": 571,
+      "amount_usd_approx": 593,
       "effective_date": "2026-05-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
@@ -80,7 +187,7 @@
       "iso": "CO",
       "currency": "COP",
       "amount_local": 1750905,
-      "amount_usd_approx": 438,
+      "amount_usd_approx": 562,
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
@@ -93,7 +200,7 @@
       "iso": "CR",
       "currency": "CRC",
       "amount_local": 370000,
-      "amount_usd_approx": 725,
+      "amount_usd_approx": 818,
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
@@ -106,13 +213,13 @@
       "iso": "MX",
       "currency": "MXN",
       "amount_local": 9582,
-      "amount_usd_approx": 548,
+      "amount_usd_approx": 566,
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
-      "notes": "Salario mínimo general nacional. $315.04 MXN/día × 30.4. Zona Libre de la Frontera Norte (ZLFN) tiene piso superior (~$475/día).",
-      "source_url": "https://www.gob.mx/conasami",
-      "source_name": "CONASAMI México"
+      "notes": "Salario mínimo general nacional. $315,04 MXN/día × 30,4167 (365/12). Zona Libre de la Frontera Norte (ZLFN): $440,87/día. Ambos vigentes desde el 1-ene-2026 (+6,5% general, +5% ZLFN, incluye MIR de $17,01), resolución CONASAMI publicada en el DOF.",
+      "source_url": "https://www.gob.mx/conasami/articulos/incremento-a-los-salarios-minimos-para-2026",
+      "source_name": "CONASAMI México — Incremento a los salarios mínimos para 2026"
     },
     {
       "pais": "Panamá",
@@ -132,7 +239,7 @@
       "iso": "UY",
       "currency": "UYU",
       "amount_local": 25383,
-      "amount_usd_approx": 635,
+      "amount_usd_approx": 631,
       "effective_date": "2026-07-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",

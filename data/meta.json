@@ -1,6 +1,6 @@
 {
-  "version": "0.7.2",
-  "last_updated": "2026-07-12T13:00:00Z",
+  "version": "0.7.3",
+  "last_updated": "2026-09-09T04:45:00Z",
   "records": 197,
   "rubros": 18,
   "paises": 8,
@@ -128,8 +128,85 @@
       "license": "Oficial",
       "fetched": "2026-06-01",
       "scope": "Salario mínimo nacional Bolivia 2026 (Bs 3.300, +20%)"
+    },
+    {
+      "name": "Boletín Oficial Argentina — Res. 4/2026 CNEPSMVM",
+      "url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
+      "license": "Oficial / dominio público",
+      "fetched": "2026-09-09",
+      "scope": "Salario mínimo Argentina — laudo del Ejecutivo, senda sep-2026 a abr-2027"
+    },
+    {
+      "name": "CONASAMI México — Incremento a los salarios mínimos para 2026",
+      "url": "https://www.gob.mx/conasami/articulos/incremento-a-los-salarios-minimos-para-2026",
+      "license": "Oficial",
+      "fetched": "2026-09-09",
+      "scope": "Salario mínimo general $315,04/día y ZLFN $440,87/día, vigentes 1-ene-2026"
+    },
+    {
+      "name": "Ipeadata (MTE) — serie MTE12_SALMIN12",
+      "url": "http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='MTE12_SALMIN12')",
+      "license": "Oficial",
+      "fetched": "2026-09-09",
+      "scope": "Salário mínimo federal Brasil — R$ 1.621 vigente todo 2026"
+    },
+    {
+      "name": "BCRA — Estadísticas Cambiarias v1.0",
+      "url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones",
+      "license": "Oficial",
+      "fetched": "2026-09-09",
+      "scope": "Tipo de cambio oficial ARS/USD para la conversión a dólares"
+    },
+    {
+      "name": "BCB Bolivia — Tabla de Cotizaciones y serie histórica del boliviano",
+      "url": "https://www.bcb.gob.bo/librerias/indicadores/otras/ultimo.php",
+      "license": "Oficial",
+      "fetched": "2026-09-09",
+      "scope": "Cotización oficial BOB/USD — documenta el fin del peg de 6,96 el 1-jul-2026"
+    },
+    {
+      "name": "Banco Central do Brasil — PTAX (API Olinda)",
+      "url": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/",
+      "license": "Oficial",
+      "fetched": "2026-09-09",
+      "scope": "Tipo de cambio BRL/USD para la conversión a dólares"
+    },
+    {
+      "name": "SII / Banco Central de Chile — Dólar Observado 2026",
+      "url": "https://www.sii.cl/valores_y_fechas/dolar/dolar2026.htm",
+      "license": "Oficial",
+      "fetched": "2026-09-09",
+      "scope": "Tipo de cambio CLP/USD para la conversión a dólares"
+    },
+    {
+      "name": "Superintendencia Financiera de Colombia — TRM (datos.gov.co)",
+      "url": "https://www.datos.gov.co/resource/32sa-8pi3.json",
+      "license": "Oficial / datos abiertos",
+      "fetched": "2026-09-09",
+      "scope": "Tasa Representativa del Mercado COP/USD"
+    },
+    {
+      "name": "BCCR Costa Rica — Tipo de cambio de referencia (indicadores 317/318)",
+      "url": "https://www.bccr.fi.cr/content/bccr/cr/es/home/_jcr_content/root/container/container/economicindicators/cardindicador.indicator.318.json",
+      "license": "Oficial",
+      "fetched": "2026-09-09",
+      "scope": "Tipo de cambio CRC/USD compra y venta"
+    },
+    {
+      "name": "Banco de México — Tipo de cambio FIX (publicado en el DOF)",
+      "url": "https://www.banxico.org.mx/tipcamb/tipCamMIAction.do",
+      "license": "Oficial",
+      "fetched": "2026-09-09",
+      "scope": "Tipo de cambio MXN/USD para la conversión a dólares"
+    },
+    {
+      "name": "BCU Uruguay — Web Service de Cotizaciones",
+      "url": "https://cotizaciones.bcu.gub.uy/wscotizaciones/servlet/awsbcucotizaciones",
+      "license": "Oficial",
+      "fetched": "2026-09-09",
+      "scope": "Tipo de cambio UYU/USD para la conversión a dólares"
     }
   ],
-  "note": "Datos consolidados de Sysarmy 2026.01 + agregadores LATAM 2026 (HR Oasis, Mismo, Interfell, NextIdea, Deel, Bloomberg Línea, El Observador, Alto Nivel). Coberturas país: AR/UY/CL/CO/MX/BR/CR/PA. v0.3 agrega 16 roles fuera del campo tech (salud, educación, retail, construcción, transporte, gastronomía, industria, servicios, seguridad pública) en los 8 países como comparativa común. Cron diario actualiza con reportes nuevos. Las medianas en USD son pago bruto mensual o equivalente; para roles US-pay (CR/PA Sr) los rangos reflejan el mercado nearshore premium; los roles non-tech reflejan mercado local presencial con paridad PPP.",
-  "last_updated_time": "06:08 -03"
+  "note": "Datos consolidados de Sysarmy 2026.01 + agregadores LATAM 2026 (HR Oasis, Mismo, Interfell, NextIdea, Deel, Bloomberg Línea, El Observador, Alto Nivel). Coberturas país: AR/UY/CL/CO/MX/BR/CR/PA. v0.3 agrega 16 roles fuera del campo tech (salud, educación, retail, construcción, transporte, gastronomía, industria, servicios, seguridad pública) en los 8 países como comparativa común. Cron diario actualiza con reportes nuevos. Las medianas en USD son pago bruto mensual o equivalente; para roles US-pay (CR/PA Sr) los rangos reflejan el mercado nearshore premium; los roles non-tech reflejan mercado local presencial con paridad PPP. || 2026-09-09: la conversión a USD del bloque de salarios mínimos pasó a usar el tipo de cambio oficial de venta de cada banco central (antes eran valores redondeados que llevaban meses sin refrescarse). El caso grave era Bolivia: el peg de Bs 6,96/USD se rompió el 1-jul-2026 y la ficha seguía valuando el mínimo en USD 474 cuando al cambio oficial de septiembre son USD 259. También se corrigieron CO (4.000→3.116,47), CR (510→452,56), CL (970→933,82) y MX (17,5→16,9202). Los montos en moneda local no cambiaron: ningún país tenía ajuste vencido (apply_wage_steps.py devolvió applied=[] y pending_manual=[]).",
+  "last_updated_time": "04:45 -03"
 }
