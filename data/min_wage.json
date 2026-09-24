@@ -1,22 +1,22 @@
 {
   "version": "1.1.0",
-  "last_updated": "2026-09-18",
+  "last_updated": "2026-09-24",
   "methodology": "Salarios mínimos legales mensuales vigentes a septiembre 2026 por país. USD aproximado calculado con el tipo de cambio oficial de VENTA (o valor de referencia único) publicado por el banco central / autoridad estadística de cada país al 8-9 de septiembre de 2026: BCRA $1.512 (AR), BCB Bs 12,74 (BO), PTAX R$5,0856 (BR), dólar observado SII/BCCh $933,82 (CL), TRM $3.116,47 (CO), BCCR ₡452,56 (CR), FIX Banxico $16,9202 (MX), paridad 1:1 (PA), BCU $40,216 (UY). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste sep 2026: AR $383.800 (primer escalón de la Res. 4/2026, laudo del Ejecutivo; senda mensual hasta abr-2027 $437.000). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830). Ojo BO: el peg de Bs 6,96/USD se rompió el 1-jul-2026 y el boliviano se depreció ~83% hasta septiembre, así que el mínimo en USD cae de ~474 a ~259 sin que el monto en bolivianos haya cambiado.",
   "fx_rates_used": {
-    "ARS_USD": 1510.0,
+    "ARS_USD": 1516.0,
     "BOB_USD": 12.74,
-    "BRL_USD": 5.1521,
+    "BRL_USD": 5.1414,
     "CLP_USD": 933.82,
-    "COP_USD": 3151.73,
-    "CRC_USD": 448.32,
+    "COP_USD": 3264.39,
+    "CRC_USD": 453.98,
     "MXN_USD": 16.9202,
     "PAB_USD": 1.0,
     "UYU_USD": 40.216
   },
   "fx_sources": {
     "ARS_USD": {
-      "rate": 1510.0,
-      "as_of": "2026-09-17",
+      "rate": 1516.0,
+      "as_of": "2026-09-23",
       "side": "cotización oficial USD",
       "source_name": "BCRA — Estadísticas Cambiarias v1.0",
       "source_url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones"
@@ -29,11 +29,11 @@
       "source_url": "https://www.bcb.gob.bo/librerias/indicadores/otras/ultimo.php"
     },
     "BRL_USD": {
-      "rate": 5.1521,
-      "as_of": "2026-09-17",
+      "rate": 5.1414,
+      "as_of": "2026-09-23",
       "side": "PTAX venta",
       "source_name": "Banco Central do Brasil — PTAX (Olinda)",
-      "source_url": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='09-17-2026'&$format=json"
+      "source_url": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='09-23-2026'&$format=json"
     },
     "CLP_USD": {
       "rate": 933.82,
@@ -43,15 +43,15 @@
       "source_url": "https://www.sii.cl/valores_y_fechas/dolar/dolar2026.htm"
     },
     "COP_USD": {
-      "rate": 3151.73,
-      "as_of": "2026-09-18",
+      "rate": 3264.39,
+      "as_of": "2026-09-24",
       "side": "TRM vigente",
       "source_name": "Superintendencia Financiera — TRM (datos.gov.co)",
       "source_url": "https://www.datos.gov.co/resource/32sa-8pi3.json?$limit=1&$order=vigenciadesde%20DESC"
     },
     "CRC_USD": {
-      "rate": 448.32,
-      "as_of": "2026-09-18",
+      "rate": 453.98,
+      "as_of": "2026-09-24",
       "side": "referencia venta",
       "source_name": "BCCR — Tipo de cambio de referencia (indicador 318)",
       "source_url": "https://www.bccr.fi.cr/content/bccr/cr/es/home/_jcr_content/root/container/container/economicindicators/cardindicador.indicator.318.json"
@@ -84,7 +84,7 @@
       "iso": "AR",
       "currency": "ARS",
       "amount_local": 383800,
-      "amount_usd_approx": 254,
+      "amount_usd_approx": 253,
       "effective_date": "2026-09-01",
       "next_adjustment": "2026-10-01",
       "frequency": "monthly",
@@ -187,7 +187,7 @@
       "iso": "CO",
       "currency": "COP",
       "amount_local": 1750905,
-      "amount_usd_approx": 556,
+      "amount_usd_approx": 536,
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
@@ -200,7 +200,7 @@
       "iso": "CR",
       "currency": "CRC",
       "amount_local": 370000,
-      "amount_usd_approx": 825,
+      "amount_usd_approx": 815,
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
