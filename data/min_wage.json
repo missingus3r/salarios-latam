@@ -1,7 +1,7 @@
 {
-  "version": "1.1.2",
+  "version": "1.1.3",
   "last_updated": "2026-09-26",
-  "methodology": "Salarios mínimos legales mensuales vigentes a septiembre 2026 por país. USD aproximado calculado con el tipo de cambio oficial de VENTA (o valor de referencia único) publicado por el banco central / autoridad estadística de cada país con últimas cotizaciones verificadas entre el 23 y el 26 de septiembre de 2026: BCRA $1.525,50 (AR), BCB Bs 12,05 (BO), PTAX R$5,1991 (BR), dólar observado SII/BCCh $959,39 (CL), TRM $3.306,86 (CO), BCCR ₡455,60 (CR), FIX Banxico $17,7100 (MX), paridad 1:1 (PA), BCU $40,049 (UY). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste sep 2026: AR $383.800 (primer escalón de la Res. 4/2026, laudo del Ejecutivo; senda mensual hasta abr-2027 $437.000). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830). Ojo BO: el peg de Bs 6,96/USD se rompió el 1-jul-2026 y el boliviano se depreció ~83% hasta septiembre, así que el mínimo en USD cae de ~474 a ~274 sin que el monto en bolivianos haya cambiado.",
+  "methodology": "Salarios mínimos legales mensuales vigentes a septiembre 2026 por país. USD aproximado calculado con el tipo de cambio oficial de VENTA (o valor de referencia único) publicado por el banco central / autoridad estadística de cada país con últimas cotizaciones verificadas entre el 23 y el 26 de septiembre de 2026: BCRA $1.525,50 (AR), BCB Bs 12,05 (BO), PTAX R$5,1991 (BR), dólar observado SII/BCCh $959,39 (CL), TRM $3.306,86 (CO), BCCR ₡455,60 (CR), FIX Banxico $17,7100 (MX), paridad 1:1 (PA), BCU $40,39 (UY). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste sep 2026: AR $383.800 (primer escalón de la Res. 4/2026, laudo del Ejecutivo; senda mensual hasta abr-2027 $437.000). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830). Ojo BO: el peg de Bs 6,96/USD se rompió el 1-jul-2026 y el boliviano se depreció ~83% hasta septiembre, así que el mínimo en USD cae de ~474 a ~274 sin que el monto en bolivianos haya cambiado.",
   "fx_rates_used": {
     "ARS_USD": 1525.5,
     "BOB_USD": 12.05,
@@ -11,7 +11,7 @@
     "CRC_USD": 455.6,
     "MXN_USD": 17.71,
     "PAB_USD": 1.0,
-    "UYU_USD": 40.049
+    "UYU_USD": 40.39
   },
   "fx_sources": {
     "ARS_USD": {
@@ -71,8 +71,8 @@
       "source_url": "https://apps.mitradel.gob.pa/SalarioMinimo/"
     },
     "UYU_USD": {
-      "rate": 40.049,
-      "as_of": "2026-09-23",
+      "rate": 40.39,
+      "as_of": "2026-09-25",
       "side": "billete venta",
       "source_name": "BCU — Cotizaciones",
       "source_url": "https://www.bcu.gub.uy/Estadisticas-e-Indicadores/Paginas/Cotizaciones.aspx?height=800&iframe=true"
@@ -239,7 +239,7 @@
       "iso": "UY",
       "currency": "UYU",
       "amount_local": 25383,
-      "amount_usd_approx": 634,
+      "amount_usd_approx": 628,
       "effective_date": "2026-07-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
