@@ -1,15 +1,15 @@
 {
-  "version": "1.1.1",
+  "version": "1.1.2",
   "last_updated": "2026-09-26",
-  "methodology": "Salarios mínimos legales mensuales vigentes a septiembre 2026 por país. USD aproximado calculado con el tipo de cambio oficial de VENTA (o valor de referencia único) publicado por el banco central / autoridad estadística de cada país con últimas cotizaciones verificadas entre el 23 y el 26 de septiembre de 2026: BCRA $1.525,50 (AR), BCB Bs 12,26 (BO), PTAX R$5,1414 (BR), dólar observado SII/BCCh $945,87 (CL), TRM $3.306,86 (CO), BCCR ₡455,60 (CR), FIX Banxico $17,503 (MX), paridad 1:1 (PA), BCU $40,049 (UY). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste sep 2026: AR $383.800 (primer escalón de la Res. 4/2026, laudo del Ejecutivo; senda mensual hasta abr-2027 $437.000). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830). Ojo BO: el peg de Bs 6,96/USD se rompió el 1-jul-2026 y el boliviano se depreció ~83% hasta septiembre, así que el mínimo en USD cae de ~474 a ~269 sin que el monto en bolivianos haya cambiado.",
+  "methodology": "Salarios mínimos legales mensuales vigentes a septiembre 2026 por país. USD aproximado calculado con el tipo de cambio oficial de VENTA (o valor de referencia único) publicado por el banco central / autoridad estadística de cada país con últimas cotizaciones verificadas entre el 23 y el 26 de septiembre de 2026: BCRA $1.525,50 (AR), BCB Bs 12,05 (BO), PTAX R$5,1991 (BR), dólar observado SII/BCCh $959,39 (CL), TRM $3.306,86 (CO), BCCR ₡455,60 (CR), FIX Banxico $17,7100 (MX), paridad 1:1 (PA), BCU $40,049 (UY). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste sep 2026: AR $383.800 (primer escalón de la Res. 4/2026, laudo del Ejecutivo; senda mensual hasta abr-2027 $437.000). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830). Ojo BO: el peg de Bs 6,96/USD se rompió el 1-jul-2026 y el boliviano se depreció ~83% hasta septiembre, así que el mínimo en USD cae de ~474 a ~274 sin que el monto en bolivianos haya cambiado.",
   "fx_rates_used": {
     "ARS_USD": 1525.5,
-    "BOB_USD": 12.26,
-    "BRL_USD": 5.1414,
-    "CLP_USD": 945.87,
+    "BOB_USD": 12.05,
+    "BRL_USD": 5.1991,
+    "CLP_USD": 959.39,
     "COP_USD": 3306.86,
     "CRC_USD": 455.6,
-    "MXN_USD": 17.503,
+    "MXN_USD": 17.71,
     "PAB_USD": 1.0,
     "UYU_USD": 40.049
   },
@@ -22,22 +22,22 @@
       "source_url": "https://api.bcra.gob.ar/estadisticascambiarias/v1.0/Cotizaciones"
     },
     "BOB_USD": {
-      "rate": 12.26,
-      "as_of": "2026-09-24",
+      "rate": 12.05,
+      "as_of": "2026-09-26",
       "side": "tipo de cambio oficial (TCO)",
       "source_name": "BCB — Tabla de Cotizaciones N° 178-26",
       "source_url": "https://www.bcb.gob.bo/librerias/indicadores/otras/ultimo.php"
     },
     "BRL_USD": {
-      "rate": 5.1414,
-      "as_of": "2026-09-23",
+      "rate": 5.1991,
+      "as_of": "2026-09-25",
       "side": "PTAX venta",
       "source_name": "Banco Central do Brasil — PTAX (Olinda)",
       "source_url": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='09-23-2026'&$format=json"
     },
     "CLP_USD": {
-      "rate": 945.87,
-      "as_of": "2026-09-23",
+      "rate": 959.39,
+      "as_of": "2026-09-24",
       "side": "dólar observado",
       "source_name": "SII / Banco Central de Chile — Dólar Observado 2026",
       "source_url": "https://www.sii.cl/valores_y_fechas/dolar/dolar2026.htm"
@@ -57,8 +57,8 @@
       "source_url": "https://www.bccr.fi.cr/content/bccr/cr/es/home/_jcr_content/root/container/container/economicindicators/cardindicador.indicator.318.json"
     },
     "MXN_USD": {
-      "rate": 17.503,
-      "as_of": "2026-09-23",
+      "rate": 17.71,
+      "as_of": "2026-09-25",
       "side": "FIX",
       "source_name": "Banco de México — Tipo de cambio FIX (DOF)",
       "source_url": "https://www.banxico.org.mx/tipcamb/tipCamMIAction.do"
@@ -148,7 +148,7 @@
       "iso": "BO",
       "currency": "BOB",
       "amount_local": 3300,
-      "amount_usd_approx": 269,
+      "amount_usd_approx": 274,
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
@@ -161,7 +161,7 @@
       "iso": "BR",
       "currency": "BRL",
       "amount_local": 1621,
-      "amount_usd_approx": 315,
+      "amount_usd_approx": 312,
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
@@ -174,7 +174,7 @@
       "iso": "CL",
       "currency": "CLP",
       "amount_local": 553553,
-      "amount_usd_approx": 585,
+      "amount_usd_approx": 577,
       "effective_date": "2026-05-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
@@ -213,7 +213,7 @@
       "iso": "MX",
       "currency": "MXN",
       "amount_local": 9582,
-      "amount_usd_approx": 547,
+      "amount_usd_approx": 541,
       "effective_date": "2026-01-01",
       "next_adjustment": "2027-01-01",
       "frequency": "monthly",
