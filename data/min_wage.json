@@ -1,6 +1,6 @@
 {
-  "version": "1.1.6",
-  "last_updated": "2026-09-30",
+  "version": "1.1.7",
+  "last_updated": "2026-10-01",
   "methodology": "Salarios mínimos legales mensuales vigentes a septiembre 2026 por país. USD aproximado calculado con el tipo de cambio oficial de VENTA (o valor de referencia único) publicado por el banco central / autoridad estadística de cada país con últimas cotizaciones verificadas entre el 25 y el 30 de septiembre de 2026: BCRA $1.522,00 (AR), BCB Bs 12,02 (BO), PTAX R$5,2204 (BR), dólar observado SII/BCCh $965,71 (CL), TRM $3.341,23 (CO), BCCR ₡458,43 (CR), FIX Banxico $17,8413 (MX), paridad 1:1 (PA), BCU $40,237 (UY). Países con esquema heterogéneo (PA, CR) reportan la categoría más representativa con nota explicativa. Último ajuste sep 2026: AR $383.800 (primer escalón de la Res. 4/2026, laudo del Ejecutivo; senda mensual hasta abr-2027 $437.000). Ajustes jul 2026: UY $25.383, CL $553.553 (Ley 21.830). Ojo BO: el peg de Bs 6,96/USD se rompió el 1-jul-2026 y el boliviano se depreció ~83% hasta septiembre, así que el mínimo en USD cae de ~474 a ~275 sin que el monto en bolivianos haya cambiado.",
   "fx_rates_used": {
     "ARS_USD": 1522.0,
@@ -83,22 +83,15 @@
       "pais": "Argentina",
       "iso": "AR",
       "currency": "ARS",
-      "amount_local": 383800,
+      "amount_local": 391200,
       "amount_usd_approx": 252,
-      "effective_date": "2026-09-01",
-      "next_adjustment": "2026-10-01",
+      "effective_date": "2026-10-01",
+      "next_adjustment": "2026-11-01",
       "frequency": "monthly",
       "notes": "Mensualizado. Res. 4/2026 CNEPSMVM (laudo del Ejecutivo tras fracaso del Consejo del 28/08, publicada en BO el 02-sep-2026) fija senda sep-2026 a abr-2027: sep $383.800 (VIGENTE, hora $1.919), oct $391.200, nov $398.800, dic $406.400, ene $414.200, feb $422.000, mar $429.600, abr $437.000 (hora $2.185). Escalones futuros cargados en schedule.",
       "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
       "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM",
       "schedule": {
-        "2026-10-01": {
-          "amount_local": 391200,
-          "hourly": 1956,
-          "next": "2026-11-01",
-          "source_url": "https://www.boletinoficial.gob.ar/detalleAviso/primera/346775/20260902",
-          "source_name": "Boletín Oficial — Resolución 4/2026 CNEPSMVM"
-        },
         "2026-11-01": {
           "amount_local": 398800,
           "hourly": 1994,
